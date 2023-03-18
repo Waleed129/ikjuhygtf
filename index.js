@@ -24,7 +24,6 @@ const {
   MessageButton,
   Client,
   Intents,
-  Collection,
   TextInputComponent,
 } = require("discord.js");
 const embed = new Discord.MessageEmbed();
