@@ -4773,7 +4773,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     let deletedd = new Discord.MessageEmbed()
     .setColor("RED")
     .setTitle("حذف تكت !")
-    .setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+//    .setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
     .setThumbnail(interaction.guild.iconURL({dynamic:true}))
     .setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
     .addFields(
@@ -4793,7 +4793,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     if (log) {
      await log.send({ embeds: [deletedd] });
     }
-     await dbt.delete(`ticket_${interaction.c.id}`)
+     await dbt.delete(`ticket_${interaction.ch.id}`)
     },4000)
                                   )
 }});
