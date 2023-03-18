@@ -4611,8 +4611,10 @@ if (message.content.toLowerCase().startsWith(prefix+"remove".toLowerCase()) || m
 let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${message.channel.id}`)
   if (!ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
   //
-  let log = message.guild.channels.cache.get('1006354092563644497')
-  let ch = message.channel;
+// let log = message.guild.channels.cache.get('1006354092563644497')
+            let chh = dbt.get(`logtkt_${message.guild.id}`)
+            let log = message.guild.channels.cache.find(c => c.id == chh)  
+            let ch = message.channel;
   //
    let member = message.mentions.members.first();
        let user = message.mentions.members.first();
@@ -4665,7 +4667,9 @@ if (!message.member.permissions.has('ADMINISTRATOR'))
 let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${message.channel.id}`)
   if (!ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
   //
-    let log = message.guild.channels.cache.get('1006354092563644497')
+  // let log = message.guild.channels.cache.get('1006354092563644497')
+            let chh = dbt.get(`logtkt_${message.guild.id}`)
+            let log = message.guild.channels.cache.find(c => c.id == chh)
     let ch = message.channel;
     //
      let member = message.mentions.members.first();
