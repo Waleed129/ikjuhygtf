@@ -36,6 +36,7 @@
             "ABC72",
             "ABC91",
             "ABC76",
+            "ABC62",
             "ABC27",
             "ABC56",
             "ABC58",
@@ -102,7 +103,6 @@
             "ABC92",
             "ABC71",
             "EAG#24115",
-            "Agshgja",
             "AUREAW1555211",
             "A*B*C12214",
             "GHUEG93353",
@@ -463,5 +463,29 @@
     [
         "embed_ABC62",
         "1087001316158619648"
+    ],
+    [
+        "member_Agshgja",
+        "687359059203981350"
+    ],
+    [
+        "name_Agshgja",
+        "ابو تميم"
+    ],
+    [
+        "id_Agshgja",
+        "s506d"
+    ],
+    [
+        "sector_Agshgja",
+        "الشرطه"
+    ],
+    [
+        "time_Agshgja",
+        "7:30"
+    ],
+    [
+        "embed_Agshgja",
+        "1087049503238017074"
     ]
 ]
