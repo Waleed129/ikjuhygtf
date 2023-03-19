@@ -78,6 +78,7 @@
             "ABC73",
             "ABC09",
             "ABC04",
+            "ABC23",
             "ABC83",
             "ABC18",
             "ABC52",
@@ -114,7 +115,6 @@
             "AVBSW215",
             "#SALEH#",
             "EDAGaga",
-            "FGFAHF!$@$R",
             "GEHEG#$!@",
             "OEOEO#%@#!",
             "GHGHGHG^*325",
@@ -175,5 +175,29 @@
     [
         "embed_ABC23",
         "1086779030948282369"
+    ],
+    [
+        "member_FGFAHF!$@$R",
+        "939601838825693284"
+    ],
+    [
+        "name_FGFAHF!$@$R",
+        "ريان "
+    ],
+    [
+        "id_FGFAHF!$@$R",
+        "PJJM-G"
+    ],
+    [
+        "sector_FGFAHF!$@$R",
+        "القوات الخاصة "
+    ],
+    [
+        "time_FGFAHF!$@$R",
+        "10:00 قيم امس الاخير"
+    ],
+    [
+        "embed_FGFAHF!$@$R",
+        "1086864485509247078"
     ]
 ]
