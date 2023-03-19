@@ -1615,9 +1615,9 @@ client.on("messageCreate", async message => {
         member.roles.remove(fre8aol);
         member.roles.remove(da7leh);
         member.roles.remove(amn3am);
-        member.roles.remove(hrs7dod);
+//        member.roles.remove(hrs7dod);
         member.roles.remove(gwat5ash);
-        member.roles.remove(gwatmsl7h);
+    //    member.roles.remove(gwatmsl7h);
         member.roles.add(mfsol);
         //
         let embed = new MessageEmbed()
