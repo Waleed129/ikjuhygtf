@@ -29,6 +29,7 @@
             "ABC82",
             "ABC50",
             "ABC65",
+            "ABC55",
             "ABC32",
             "ABC94",
             "ABC16",
@@ -113,7 +114,6 @@
             "GIheg3561",
             "AVBSW215",
             "#SALEH#",
-            "EDAGaga",
             "FGFAHF!$@$R",
             "GEHEG#$!@",
             "OEOEO#%@#!",
@@ -1983,5 +1983,29 @@
     [
         "embed_ABC42",
         "1087815073059315772"
+    ],
+    [
+        "member_EDAGaga",
+        "694150216865022034"
+    ],
+    [
+        "name_EDAGaga",
+        "ابو شايع "
+    ],
+    [
+        "id_EDAGaga",
+        "H-nQw"
+    ],
+    [
+        "sector_EDAGaga",
+        "قوات الخاصه"
+    ],
+    [
+        "time_EDAGaga",
+        "4:00 تحضير امس معلق"
+    ],
+    [
+        "embed_EDAGaga",
+        "1087960543752622111"
     ]
 ]
