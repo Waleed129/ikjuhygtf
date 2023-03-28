@@ -2174,8 +2174,8 @@ if (!message.member.roles.cache.has('980494295444361216'))
 return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
 message.delete();
   //
-   if(!dbp.has(`channel1_${message.guild.id}`)) return message.reply("**I Can't Find The Channel !**")
-    if(!dbp.has(`codes_${message.guild.id}`)) return message.reply("**I Can't Find The Codes !**")
+   if(!dbp.has(`channel1_${message.guild.id}`)) return message.reply({ content: ` __** تواصل مع : ${owner} **__ ` });
+    if(!dbp.has(`codes_${message.guild.id}`)) return message.reply({ content: ` __** تواصل مع : ${owner} **__ ` });
     let embed = new Discord.MessageEmbed()
     .setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
     .setTitle(`التحضير العسكري`)
@@ -2190,17 +2190,7 @@ message.delete();
     message.delete()
     message.channel.send({ embeds: [embed], components:[row] })
 }
-//
-if (message.guild.id == '996810757238968431') {
-if (!message.member.permissions.has('ADMINISTRATOR'))
-if (!message.member.roles.cache.has('996820405828464742')) 
-return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-message.delete();
-message.channel.send({ content: ` __** الأمر خاص بالعساكر ! **__ ` });
-}
-if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-}
-});
+}});
 
 client.on("interactionCreate" , async interaction => {
   if(interaction.isButton()) {
@@ -2347,9 +2337,6 @@ client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"توب")) {
   if (message.guild.id == '980493720233316372') {
-/*  if (!message.member.permissions.has('ADMINISTRATOR'))
-  if (!message.member.roles.cache.has('980494295444361216'))
-  return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); */
   //
 let d = new Discord.MessageButton()
 .setLabel(`االتوب الوازري`)
@@ -2442,40 +2429,6 @@ const collector = message.channel.createMessageComponentCollector({ componentTyp
   });
    }
   //
-   if (message.guild.id == '996810757238968431') {
-  if (!message.member.permissions.has('ADMINISTRATOR'))
-  if (!message.member.roles.cache.has('996820405828464742')) 
-  return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-  const usersData = []
-  message.guild.members.cache.forEach(user => { usersData.push(user) })
-  var pointsContent = usersData.length;
-  let usersContent = 0;
-  let usersMaxContent = 52;
-  let tempData = [];
-  for (let i = 0; i < pointsContent; i++) {
-  var database = dbb.fetch(`pointsstaff_${usersData[i].id}`)
-  if (database == null) continue;
-   
-  tempData.push({
-  name: usersData[i].user.id,
-  data: database
-  });
-  }
-  const leaderboardData = []
-  tempData.sort((a, b) => b.data - a.data);
-  for (let k = 0; k < tempData.length; k++) {
-  usersContent++
-  if (usersContent >= usersMaxContent) continue;
-  leaderboardData.push(` __** المركز الـ "\`${k + 1}\`" يذهب لـ الإداري : "<@!${tempData[k].name}>" بـ نقاط تقدر بـ : "${tempData[k].data}" . **__` )}
-  var topValue = leaderboardData.join('\n')
-  let embed = new Discord.MessageEmbed()
-  .setTitle("التوب الإداري")
-  .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
-  .setDescription(topValue)
-  .setTimestamp()
-  .setColor(`#32496b`)
-  message.edit({ content: ` __** تفضل التوب الإداري : **__ ` ,embeds: [embed] });
-  }
   }});
 
     client.on("messageCreate" , message => {
@@ -3236,8 +3189,8 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
 }});
 
 client.on("messageCreate", message => {
-          if(message.author.bot) return;
-          if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
+if(message.author.bot) return;
+if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
           //
 let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${message.channel.id}`)
   let row2 = new Discord.MessageActionRow()
@@ -3289,8 +3242,8 @@ let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${
           }
 });
 
-        client.on("interactionCreate" , interaction => {
-          if (interaction.member.bot || !interaction.channel.guild || interaction.member.roles.cache.has('980494295444361216') || !interaction.isButton()) return;
+client.on("interactionCreate" , interaction => {
+if (interaction.member.bot || !interaction.channel.guild || interaction.member.roles.cache.has('980494295444361216') || !interaction.isButton()) return;
          let sglaltf3el = interaction.guild.channels.cache.get('1016292689941106758')
                let w8wanen1 = interaction.guild.channels.cache.get('1073254895056068649')
                let w8wanen2 = interaction.guild.channels.cache.get('1073253082986709123')
@@ -3850,4 +3803,4 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
          }
                      });
 
-client.login(process.env.token).catch(() => console.log(`[ERROR]: Invalid Token!`));
+client.login(process..token).catch(() => console.log(`[ERROR]: Invalid Token!`));
