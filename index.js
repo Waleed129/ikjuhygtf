@@ -46,7 +46,6 @@ const dbf9l = new Database({path: "m69ol.json"})
 const dbm = require('pro.db')
 // بكج
 let owner = ['497796195104718888']
-let tokenbot = process.env.token;
 //
 const client = new Client({
   partials: ["CHANNEL"],
@@ -92,39 +91,8 @@ client.on("ready", () => {
         });
       }).catch((error) => { return; });
   }, 1000)
-//
-const commands = [{
-            name:"m6lob",
-            description:"لـ وضع شخص مطلوب !",
-            cooldown:15,
-            options:[
-              {
-type: parseInt("3"),name:"althmh",description:"التهم اللي عليه",required:true},
-{type: parseInt("3"),name:"image",description:"صورة المطلوب",required:true},
-{type: parseInt("6"),name:"alm6lob",description:"المطلوب إن عُرف",required:false},
-{type: parseInt("8"),name:"al39abh",description:"عصابة المطلوب إن عُرف",required:false}
-]
-          }
-         /*
-          {
-          name: 'aa',
-          description: 'ss',
-          }
-          */
-]
-const rest = new REST({ version: '9' }).setToken(tokenbot);
-      (async () => {
-          try {
-              await rest.put(
-                  Routes.applicationCommands(client.user.id),
-                  { body: commands },
-              );
-              console.log('Dn Slash Command');
-          } catch (error) {
-              console.error(error);
-          }
-      })(); 
-  }); 
+
+});
 
  client.on("messageCreate", message => {
   if (message.content.startsWith(prefix+'إسم-البوت')) {
@@ -146,7 +114,8 @@ let avatar = args.slice(1).join(" ");
 if (!avatar) return message.reply({ content: ` __** إرسل الأفتار ! **__ ` });
 client.user.setAvatar(`${avatar}`);
 message.reply({ content: ` __** تم تغيير أفتار البوت إلى : ${avatar} **__ ` });
-}});
+}
+});
 
 client.on('messageCreate', message => {
   let guildID = message.content.split(' ')[1]
@@ -163,10 +132,7 @@ client.on('messageCreate', message => {
 
 client.on("messageCreate", message => {
 if(message.content === prefix +"سيرفراتي") {
-if(!owner.includes(message.author.id))return;
-/* client.guilds.cache.forEach(c => {
-message.channel.send(`${c.id} | ${c.name}`)
-})  */
+if(!owner.includes(message.author.id)) return;
 let servers = " "; 
 let num = 0;
 client.guilds.cache.forEach(server =>{
@@ -181,14 +147,12 @@ let embed = new Discord.MessageEmbed()
 // message.reply({ embeds: [embed] });
 message.reply({ content: ` ** ${servers} **` });
 //
-}});
+}
+});
 
   client.on('messageCreate', async message => {
     if(message.author.bot) return;
     if(message.content === prefix+'توضيح') {
-     // 
-      if (message.guild.id == '980493720233316372') {
-              //
     let row = new Discord.MessageActionRow()
     .addComponents(
     new Discord.MessageSelectMenu()
@@ -204,55 +168,25 @@ message.reply({ content: ` ** ${servers} **` });
     value: 'tf'
     },
     {
-      label: 'القسم العام',
-      description: 'لـ عرض أوامر القسم العام يرجى الضغط هنا',
-      emoji: '👮🏻‍♂️',
-      value: '3am'
-      },
-    {
       label: 'قسم اوامر التكت',
       description: 'لـ عرض أوامر التكت يرجى الضغط هنا',
       emoji: '👮🏻‍♂️',
       value: 'tkt'
-      } 
+      },
+    {
+      label: 'القسم العام',
+      description: 'لـ عرض أوامر القسم العام يرجى الضغط هنا',
+      emoji: '👮🏻‍♂️',
+      value: '3am'
+      }
     ])
     )
     let embed = new Discord.MessageEmbed()
     .setColor('#32496b')
     .setDescription('لـ رؤية خريطة التوضيح قم بالضغط على الزر اللذي بالأسفل و تحديد ما تريده')
- // let m =
-   await message.reply({ embeds: [ embed ], components: [ row ]});
-      }
-if (message.guild.id == '996810757238968431') {
-let row2 = new Discord.MessageActionRow()
-    .addComponents(
-    new Discord.MessageSelectMenu()
-    .setMinValues(0)
-    .setMaxValues(1)
-    .setPlaceholder('إضغط هنا لرؤية خريطة التوضيح')
-    .setCustomId('todehgang')
-    .addOptions([
-    {
-    label: 'القسم الإداري',
-    description: 'لـ عرض أوامر الإدارة يرجى الضغط هنا',
-    emoji: '☠️',
-    value: 'tfgang'
-    },
-    {
-      label: 'قسم اوامر التكت',
-      description: 'لـ عرض أوامر التكت يرجى الضغط هنا',
-      emoji: '☠️',
-      value: 'tktgang'
-      } 
-    ])
-    )
-    let embed2 = new Discord.MessageEmbed()
-    .setColor('#32496b')
-    .setDescription('لـ رؤية خريطة التوضيح قم بالضغط على الزر اللذي بالأسفل و تحديد ما تريده')
-  
-   await message.reply({ embeds: [embed2], components: [row2] });
-            }
-  }});
+   await message.reply({ embeds: [embed], components: [row] });
+  }
+    });
 
   client.on("interactionCreate" , interaction => {
     if (!interaction.isSelectMenu()) return;
@@ -295,35 +229,6 @@ let row2 = new Discord.MessageActionRow()
         interaction.reply({ embeds: [ embed7 ], ephemeral: true });
         }
     }
-     if (interaction.customId == "todehgang") {
-    if(interaction.values[0] == 'tfgang') {
-      if (!interaction.member.permissions.has('ADMINISTRATOR'))
-      if (!interaction.member.roles.cache.has('996820405828464742'))
-      return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral: true });
-      //
-      let embed2 = new Discord.MessageEmbed()
-      .setTitle(`الأوامر الإدارية :`)
-      .setDescription(`__** FBI Gang \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n مع منشن للعضو بعد كل أمر ! **__ `)
-      .setFooter({text:`مسؤول العصابات بالخدمة`})
-      .setColor(`#32496b`)
-      .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
-      interaction.reply({ embeds: [ embed2 ], ephemeral: true});
-      }
-      //
-      if(interaction.values[0] == 'tktgang') {
-        if (!interaction.member.permissions.has('ADMINISTRATOR'))
-        if (!interaction.member.roles.cache.has('996820405828464742'))
-        return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral: true });
-        //
-        let embed7 = new Discord.MessageEmbed()
-        .setTitle(`أوامر التكت :`)
-        .setDescription(`__** مالكش دخل **__ `)
-        .setFooter({text:`مسؤول العصابات بالخدمة`})
-        .setColor(`#32496b`)
-        .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
-        interaction.reply({ embeds: [ embed7 ], ephemeral: true });
-        }
-     }
   });
 
 client.on("messageCreate" , message => {
@@ -344,7 +249,6 @@ client.on("messageCreate", async message => {
  let member = message.mentions.members.first();
      let user = message.mentions.members.first();
     //
-     if (message.guild.id == '980493720233316372') {
       if (!message.member.permissions.has('ADMINISTRATOR'))
         //
         if (!message.member.roles.cache.has('980494296320999424'))
@@ -4405,4 +4309,4 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
          }
                      });
 
-client.login(tokenbot).catch(() => console.log(`[ERROR]: Invalid Token!`));
+client.login(process.env.token).catch(() => console.log(`[ERROR]: Invalid Token!`));
