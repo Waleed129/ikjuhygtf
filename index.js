@@ -45,6 +45,9 @@ const dbf9l = new Database({path: "m69ol.json"})
 //
 const dbm = require('pro.db')
 // بكج
+//
+let tokenbot = process.env.token
+//
 let owner = ['497796195104718888']
 //
 const client = new Client({
@@ -91,7 +94,38 @@ client.on("ready", () => {
         });
       }).catch((error) => { return; });
   }, 1000)
-
+//
+  const commands = [{
+            name:"m6lob",
+            description:"لـ وضع شخص مطلوب !",
+            cooldown:15,
+            options:[
+              {
+type: parseInt("3"),name:"althmh",description:"التهم اللي عليه",required:true},
+{type: parseInt("3"),name:"image",description:"صورة المطلوب",required:true},
+{type: parseInt("6"),name:"alm6lob",description:"المطلوب إن عُرف",required:false},
+{type: parseInt("8"),name:"al39abh",description:"عصابة المطلوب إن عُرف",required:false}
+]
+          }
+         /*
+          {
+          name: 'aa',
+          description: 'ss',
+          }
+          */
+]
+const rest = new REST({ version: '9' }).setToken(tokenbot);
+      (async () => {
+          try {
+              await rest.put(
+                  Routes.applicationCommands(client.user.id),
+                  { body: commands },
+              );
+              console.log('Dn Slash Command');
+          } catch (error) {
+              console.error(error);
+          }
+      })(); 
 });
 
  client.on("messageCreate", message => {
@@ -3803,4 +3837,4 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
          }
                      });
 
-client.login(process..token).catch(() => console.log(`[ERROR]: Invalid Token!`));
+client.login(tokenbot).catch(() => console.log(`[ERROR]: Invalid Token!`));
