@@ -236,7 +236,7 @@ let row2 = new Discord.MessageActionRow()
       .setDescription(`__** FBI Police \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n لـ قبول إستقالة شخص قم بكتابة : ${prefix}استقالة \n لـ إعطاء أو إزالة رتبة من عسكري قم بكتابة : role${prefix} \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`حاكم الدولة بالخدمة`})
       .setColor(`#32496b`)
-      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+      .setImage('https://media.discordapp.net/attachments/982409404043374602/1088235782919164076/9596a469648c5614.jpg?width=1025&height=100')
       interaction.reply({ embeds: [ embed2 ], ephemeral: true});
       }
       //
@@ -246,7 +246,7 @@ let row2 = new Discord.MessageActionRow()
         .setDescription(`__** FBI Police \n لـ معرفة تحاضير شخص او نفسك قم بكتابة : ${prefix}تحضيراتي \n لـ معرفة توب 20 تحاضير قم بكتابة : ${prefix}توب ! **__ `)
         .setFooter({text:`حاكم الدولة بالخدمة`})
         .setColor(`#32496b`)
-        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+        .setImage('https://media.discordapp.net/attachments/982409404043374602/1088235782919164076/9596a469648c5614.jpg?width=1025&height=100')
         interaction.reply({ embeds: [ embed2 ], ephemeral: true});
         }
         //
@@ -260,7 +260,7 @@ let row2 = new Discord.MessageActionRow()
 .setDescription(`__** FBI Police \n لـ إدخال شخص إلى التكت قم بكتابة : ${prefix}اضافة . \n لـ طرد شخص من التكت قم بكتابة : ${prefix}طرد . \n لـ حذف تكت قم بكتابة : ${prefix}حذف \n لـ قفل تكت قم بكتابة : ${prefix}اقفال \n أو يمكنك إستخدام الأوامر الموجودة في أعلى التكت . \n أو منشن البوت . **__ `)
         .setFooter({text:`حاكم الدولة بالخدمة`})
         .setColor(`#32496b`)
-        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+        .setImage('https://media.discordapp.net/attachments/982409404043374602/1088235782919164076/9596a469648c5614.jpg?width=1025&height=100')
         interaction.reply({ embeds: [ embed7 ], ephemeral: true });
         }
     }
@@ -2516,11 +2516,11 @@ if (!message.member.permissions.has('ADMINISTRATOR'))
   }
 });
   
- client.on("guildCreate", guild => {
+/* client.on("guildCreate", guild => {
   if (guild.memberCount < 100000000) {
     guild.leave()
   }
-}); 
+}); */
 
   client.on("messageCreate", (message) => {
     if(message.author.bot) return;
@@ -2694,7 +2694,7 @@ let embed = new Discord.MessageEmbed()
 عشان تعرف تحاضيرك او تحاضير غيرك :
 
 > ${prefix}تحضيراتي **__`)
-.setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
+.setImage(line)
 message.delete();
 message.channel.send({ embeds: [embed] })
 }
