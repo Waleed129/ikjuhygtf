@@ -35,14 +35,19 @@ const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const moment = require("moment")
 require("moment-duration-format");
+//
 const Database = require("st.db")
 const db = new Database({path: "database.json"})
 const dbb = new Database({path: "tf3el.json"})
 const dbp = new Database({path: "points.json"})
 const dbt = new Database({path: "ticket.json"})
+const dbf9l = new Database({path: "m69ol.json"})
+//
+const dbm = require('pro.db')
 // بكج
 let owner = ['497796195104718888']
-
+let tokenbot = process.env.token;
+//
 const client = new Client({
   partials: ["CHANNEL"],
   intents: [
@@ -70,10 +75,9 @@ DiscordModal(client);
 const cooldown = new Set();
 // تحضير
 let line = new Discord.MessageAttachment("https://media.discordapp.net/attachments/982409404043374602/1088235782919164076/9596a469648c5614.jpg?width=1025&height=100");
-let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/982409404043374602/1058446210513502349/fdbd8ca84ac31ec0.jpg");
 // خط
 const prefix = "-"; // البرفكس
-
+//
 client.on("ready", () => {
   console.log(`dn on a : ${client.user.tag}`);
   client.user.setActivity("لـ خدمة FBI", { type: "WATCHING" });
@@ -88,12 +92,39 @@ client.on("ready", () => {
         });
       }).catch((error) => { return; });
   }, 1000)
-  /* const channel = client.channels.cache.get("980494406836690997")
-channel.send({ content: ` __**  اعتذر عن ما حصل لكني الأن عدت بشكل رسمي ولله الحمد 
-من يريد ان يقوم بالتفعيل <#1073229889316065321> . 
-في حال وجود مشاكل قم بالتواصل مع <@${owner}>
-@here **__ ` }); */
-});
+//
+const commands = [{
+            name:"m6lob",
+            description:"لـ وضع شخص مطلوب !",
+            cooldown:15,
+            options:[
+              {
+type: parseInt("3"),name:"althmh",description:"التهم اللي عليه",required:true},
+{type: parseInt("3"),name:"image",description:"صورة المطلوب",required:true},
+{type: parseInt("6"),name:"alm6lob",description:"المطلوب إن عُرف",required:false},
+{type: parseInt("8"),name:"al39abh",description:"عصابة المطلوب إن عُرف",required:false}
+]
+          }
+         /*
+          {
+          name: 'aa',
+          description: 'ss',
+          }
+          */
+]
+const rest = new REST({ version: '9' }).setToken(tokenbot);
+      (async () => {
+          try {
+              await rest.put(
+                  Routes.applicationCommands(client.user.id),
+                  { body: commands },
+              );
+              console.log('Dn Slash Command');
+          } catch (error) {
+              console.error(error);
+          }
+      })(); 
+  }); 
 
  client.on("messageCreate", message => {
   if (message.content.startsWith(prefix+'إسم-البوت')) {
@@ -1640,8 +1671,8 @@ client.on("messageCreate", async message => {
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     m.delete();  
     message.delete();
-    db.set(`msfol`, user.id)
-    db.set(`reason_${user.id}`, reson)
+    dbf9l.set(`msfol`, user.id)
+    dbf9l.set(`reason_${user.id}`, reson)
     }
         //
           if(i.values[0] === 'sbb-alfsl' || i.values[1] === 'sbb-alfsl') {
@@ -1649,9 +1680,9 @@ client.on("messageCreate", async message => {
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
         //
-        if(!db.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** لم يتم فصل العسكري ! **__ ` , ephemeral: true });
+        if(!dbf9l.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** لم يتم فصل العسكري ! **__ ` , ephemeral: true });
 //
-        let resons = db.get(`reason_${user.id}`)
+        let resons = dbf9l.get(`reason_${user.id}`)
         let embed = new MessageEmbed()
         .setTitle("الفصل الوزاري")
         .setDescription(` __** عزيزي الإداري : ${message.author} . \n سبب فصل : ${user} . \n هو : ${resons} . **__ `)
@@ -1670,7 +1701,7 @@ client.on("messageCreate", async message => {
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
         //
-        if(!db.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** لم يتم فصل العسكري ! **__ ` , ephemeral: true });
+        if(!dbf9l.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** لم يتم فصل العسكري ! **__ ` , ephemeral: true });
 //
         let ch = dbb.get(`logtf3el_${message.guild.id}`)
         let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
@@ -1678,7 +1709,7 @@ client.on("messageCreate", async message => {
         let mfsol = message.guild.roles.cache.get('980494370623094814');
         member.roles.remove(mfsol);
         //
-        let resons = db.get(`reason_${user.id}`)
+        let resons = dbf9l.get(`reason_${user.id}`)
         let embed = new MessageEmbed() 
         .setTitle("الفصل الوزاري")
         .setDescription(` __** عزيزي الإداري : ${message.author} . \n تم إزالة الفصل عن : ${user} .\n مع العلم أن سبب فصله قد كان : ${resons} . **__ `)
@@ -1699,24 +1730,19 @@ client.on("messageCreate", async message => {
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     m.delete();  
     message.delete();
-    db.delete(`mfsol_${user.id}`)
-    db.delete(`reason_${user.id}`)
+    dbf9l.delete(`mfsol_${user.id}`)
+    dbf9l.delete(`reason_${user.id}`)
     }
     }
     })
   }
-    if (message.guild.id == '996810757238968431') {
-      message.reply({ content: ` __** عذراً أمر الفصل موقف , لا يمكن فصل إي شخص من العصابات فنحن لسنا فشله مثل الوزارة . **__ ` });
-}
-    //
-}});
 
 client.on("guildMemberAdd" , member => { 
 if (member.guild.id == '980493720233316372') {
 //
 let mfsol = member.guild.roles.cache.get('980494370623094814');
 //
-if(db.has(`msfol_${member.id}`)) {
+if(dbf9l.has(`msfol_${member.id}`)) {
 member.roles.add(mfsol)
 }};
 //
@@ -2810,14 +2836,14 @@ let embed = new Discord.MessageEmbed()
 channel1.send({ content: ` __** <:emoji_20:981170142744567808> تحضير جديد بواسطة : ${interaction.member} <:emoji_20:981170142744567808> **__ `, embeds:[embed] });
 channel1.send({ files: [line] });
 interaction.reply({ content: ` __** <:emoji_20:981170142744567808> تم إرسال تحضيرك بـ نجاح : ${interaction.member} <:emoji_20:981170142744567808> **__ `, ephemeral:true }).then(m=> {
-db.set(`member_${random}` , interaction.member.id)
-db.set(`name_${random}` , `${name}`)
-db.set(`id_${random}` , `${id}`)
-db.set(`sector_${random}` , `${sector}`)
-db.set(`time_${random}` , `${time}`)
-db.set(`embed_${random}` , m.id)
+dbp.set(`member_${random}` , interaction.member.id)
+dbp.set(`name_${random}` , `${name}`)
+dbp.set(`id_${random}` , `${id}`)
+dbp.set(`sector_${random}` , `${sector}`)
+dbp.set(`time_${random}` , `${time}`)
+dbp.set(`embed_${random}` , m.id)
 let f = codes.filter(t => t !== random)
-db.set(`codes_${interaction.guild.id}` , f)
+dbp.set(`codes_${interaction.guild.id}` , f)
 })
    cooldown.add(interaction.member.id)
      setTimeout(() => {
@@ -3006,374 +3032,6 @@ const collector = message.channel.createMessageComponentCollector({ componentTyp
   message.edit({ content: ` __** تفضل التوب الإداري : **__ ` ,embeds: [embed] });
   }
   }});
-
-client.on("messageCreate" , message => {
-  if(message.content.startsWith(prefix+"شات-التقديمات")) {
-        if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
-      let channel = message.mentions.channels.first()
-      if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ ` });
-      db.set(`channel_${message.guild.id}` , channel.id)
-      message.reply({ content: ` __** تم تعيين ${channel} كـ شات للتقديمات ! **__ ` });
-  }
-});
-
-client.on("messageCreate" , message => {
-if(message.content.startsWith(prefix+"رتبة-الإدارة-1")) {
-      if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
-  let r = message.content.split(" ").slice(1).join(" ")
-  let role = message.guild.roles.cache.find(r=> r.id == r)
-  if(!r) {
-    if(!role) {
-      message.reply({ content: ` __** منشن الرتبة ! **__ ` });
-    }
-  }
-  db.set(`role_${message.guild.id}` , r)
-  message.reply({ content: ` __** تم تعيين ${r} كـ رتبة للإدارة ! **__ ` })
-}
-});
-client.on("messageCreate" , message => {
-  if(message.content.startsWith(prefix+"رتبة-الإدارة-2")) {
-        if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
-    let r2 = message.content.split(" ").slice(1).join(" ")
-    let role2 = message.guild.roles.cache.find(r2=> r2.id == r2)
-    if(!r2) {
-      if(!role2) {
-        message.reply({ content: ` __** منشن الرتبة ! **__ ` });
-      }
-    }
-    db.set(`role2_${message.guild.id}` , r2)
-    message.reply({ content: ` __** تم تعيين ${r2} كـ رتبة للإدارة ! **__ ` })
-  }
-  });
-
-client.on("messageCreate" , message => {
-if(message.content.startsWith(prefix+"رتبة-القبول")) {
-      if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
-  let r = message.content.split(" ").slice(1).join(" ")
-  let role = message.guild.roles.cache.find(r=> r.id == r)
-  if(!r) {
-    if(!role) {
-      message.reply({ content: ` __** منشن رتبة المسؤولين ! **__ ` });
-    }
-  }
-  db.set(`rolehigh_${message.guild.id}` , r)
-  message.reply({ content: ` __** تم تعيين ${r} كـ رتبة مسؤولين القبول ! **__ ` });
-}
-});
-
-
-client.on("messageCreate" , message => {
-if(message.content == prefix+"التقديم") {
-if (message.guild.id == '980493720233316372') {
-if (!message.member.permissions.has('ADMINISTRATOR'))
-if (!message.member.roles.cache.has('980494295444361216'))
-return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-  if(!db.has(`channel_${message.guild.id}`)) {
-    if(!db.has(`role_${message.guild.id}`)) {
-      if(!db.has(`role2_${message.guild.id}`)) {
-      if(!db.has(`rolehigh_${message.guild.id}`)) {
-      return  message.reply({ content: ` __** قم بتحديد الرتب و الشاتات و المسؤولين ! **__` });
-      }
-    }
-  }
-}
-let embed = new Discord.MessageEmbed()
-.setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
-.setTitle(`التقديم الإداري`)
-.setDescription(` __** لـ التقديم الإداري يرجى الضغط على 👮🏻 . **__ `)
-.setColor("GREEN")
-let row = new Discord.MessageActionRow()
-.addComponents(
-new Discord.MessageButton()
-.setLabel(`التقديم الإداري`)
-.setEmoji('👮🏻')
-.setCustomId("apply")
-.setStyle("SUCCESS")
-)
-message.delete()
-message.channel.send({ components:[row], embeds:[embed] });
-}
-//
-if (message.guild.id == '996810757238968431') {
-if (!message.member.permissions.has('ADMINISTRATOR'))
-if (!message.member.roles.cache.has('996820405828464742')) 
-return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-message.delete();
-  if(!db.has(`channel_${message.guild.id}`)) {
-    if(!db.has(`role_${message.guild.id}`)) {
-      if(!db.has(`role2_${message.guild.id}`)) {
-      if(!db.has(`rolehigh_${message.guild.id}`)) {
-      return  message.reply({ content: ` __** قم بتحديد الرتب و الشاتات و المسؤولين ! **__` });
-      }
-    }
-  }
-}
-  
-let embed = new Discord.MessageEmbed()
-.setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
-.setTitle(`التقديم الإداري`)
-.setDescription(` __** لـ التقديم الإداري يرجى الضغط على ☠️ . **__ `)
-.setColor("GREEN")
-let row = new Discord.MessageActionRow()
-.addComponents(
-new Discord.MessageButton()
-.setLabel(`التقديم الإداري`)
-.setEmoji('☠️')
-.setCustomId("applygang")
-.setStyle("SUCCESS")
-)
-message.delete()
-message.channel.send({ components:[row], embeds:[embed] });}
-}});
-
-client.on('interactionCreate', async interaction => {
-if (!interaction.isButton()) return;
-if (interaction.guild.id == '980493720233316372') {
-if (interaction.customId === 'apply') {
-   let role = db.get(`role_${interaction.guild.id}`)
-   let role2 = db.get(`role2_${interaction.guild.id}`)
-   let user = db.get(`user_${interaction.member.id}`)  
-   if(user) return interaction.reply({content : " __** لا يمكنك التقديم أكثر من مرة ! **__ " , ephemeral:true})
-   if(interaction.member.roles.cache.some(r=>r.id == role)) return interaction.reply({content : " __** لديك سكيورتي بوليس مسبقاَ ! **__ " , ephemeral:true}) 
-   if(interaction.member.roles.cache.some(r=>r.id == role2)) return interaction.reply({content : " __** لديك بوليس ستاف مسبقاَ ! **__ " , ephemeral:true}) 
-
-   const modal2 = new ModalBuilder()
-   .setCustomId('modal2')
-   .setTitle('التقديم الإداري :')
-         .addComponents(
-       new ModalField()
-   .setCustomId('name')
-   .setLabel("اسمك ؟")
-         .setRequired(true)
-         .setPlaceholder("يرجى كتابة إسمك هنا ... ")
-         .setMin(3)
-         .setMax(32)
-   .setStyle('SHORT'),
-           
-  new ModalField()
-   .setCustomId('id')
-   .setLabel("أيديك ؟")
-         .setRequired(true)
-         .setPlaceholder(" ... يرجى كتابة ايديك هنا ")
-         .setMin(4)
-         .setMax(100)
-   .setStyle('SHORT'),
-           
-       new ModalField()
-   .setCustomId('sector')
-   .setLabel("قطاعك العسكري ؟")
-         .setRequired(true)
-         .setPlaceholder(" ... يرجى كتابة قطاعك العسكري هنا ( اسم القطاع ) ")
-         .setMin(5)
-         .setMax(32)
-         .setStyle('SHORT'),
- 
-         new ModalField()
-   .setCustomId('5brat')
-   .setLabel("خبراتك")
-         .setRequired(true)
-         .setPlaceholder("يرجى كتابة خبراتك هنا ...")
-         .setMin(5)
-         .setMax(100)
-   .setStyle('PARAGRAPH'),
-   new ModalField()
-   .setCustomId('time')
-   .setLabel("وقت تفاعلك")
-         .setRequired(true)
-         .setPlaceholder("يرجى كتابة وقت تفاعلك هنا ...")
-         .setMin(5)
-         .setMax(30)
-   .setStyle('SHORT'),
-         )
- await client.modal.open(interaction , modal2);
-         }
-}
-  if (interaction.guild.id == '980493720233316372') {
-if (interaction.customId === 'applygang') {
-   let role = db.get(`role_${interaction.guild.id}`)
-   let role2 = db.get(`role2_${interaction.guild.id}`)
-   let user = db.get(`user_${interaction.member.id}`)  
-   if(user) return interaction.reply({content : " __** لا يمكنك التقديم أكثر من مرة ! **__ " , ephemeral:true})
-   if(interaction.member.roles.cache.some(r=>r.id == role)) return interaction.reply({content : " __** لديك سكيورتي بوليس مسبقاَ ! **__ " , ephemeral:true}) 
-   if(interaction.member.roles.cache.some(r=>r.id == role2)) return interaction.reply({content : " __** لديك بوليس ستاف مسبقاَ ! **__ " , ephemeral:true}) 
-
-   const modal3 = new ModalBuilder()
-   .setCustomId('modal3')
-   .setTitle('التقديم الإداري :')
-         .addComponents(
-       new ModalField()
-   .setCustomId('namegang')
-   .setLabel("اسمك ؟")
-         .setRequired(true)
-         .setPlaceholder("يرجى كتابة إسمك هنا ... ")
-         .setMin(3)
-         .setMax(32)
-   .setStyle('SHORT'),
-           
-  new ModalField()
-   .setCustomId('idgang')
-   .setLabel("أيديك ؟")
-         .setRequired(true)
-         .setPlaceholder(" ... يرجى كتابة ايديك هنا ")
-         .setMin(4)
-         .setMax(100)
-   .setStyle('SHORT'),
-           
-       new ModalField()
-   .setCustomId('sectorgang')
-   .setLabel("عصابتك ؟")
-         .setRequired(true)
-         .setPlaceholder(" ... يرجى كتابة عصابتك هنا ( اسم العصابة ) ")
-         .setMin(5)
-         .setMax(32)
-         .setStyle('SHORT'),
- 
-         new ModalField()
-   .setCustomId('5bratgang')
-   .setLabel("خبراتك")
-         .setRequired(true)
-         .setPlaceholder("يرجى كتابة خبراتك هنا ...")
-         .setMin(5)
-         .setMax(100)
-   .setStyle('PARAGRAPH'),
-   new ModalField()
-   .setCustomId('timegang')
-   .setLabel("وقت تفاعلك")
-         .setRequired(true)
-         .setPlaceholder("يرجى كتابة وقت تفاعلك هنا ...")
-         .setMin(5)
-         .setMax(30)
-   .setStyle('SHORT'),
-         )
- await client.modal.open(interaction , modal3);
-         }
-}
- }
- ); 
-
-client.on('modalSubmitInteraction', async interaction => {
-  if(interaction.customId == "modal2") {
-   let ch = db.get(`channel_${interaction.guild.id}`)
-   let channel = interaction.guild.channels.cache.find(c => c.id == ch)
-   const name = interaction.fields.getTextInputValue("name")
-   const id = interaction.fields.getTextInputValue("id")
-   const sector = interaction.fields.getTextInputValue("sector")
-   const hbrat = interaction.fields.getTextInputValue("5brat")
-   const time = interaction.fields.getTextInputValue("time")
-   let row = new MessageActionRow().addComponents(
-     new Discord.MessageButton()
-     .setLabel("قبول ✅")
-     .setCustomId("acc")
-     .setStyle("SUCCESS"),
-     new Discord.MessageButton()
-     .setLabel("رفض ❌")
-     .setCustomId("dec")
-     .setStyle("DANGER")
-   )
-   interaction.reply({ content: " __** تم إرسال تقديمك ! **__ " , ephemeral:true})
-   db.set(`user_${interaction.member.id}` , interaction.member.id)
-   channel.send({ content:` __** تقديم جديد من : <@${interaction.member.id}> \n  إسم العسكري : ${name} \n أيدي العسكري : \`${id}\` \n قطاع العسكري : ${sector} \n خبراته : ${hbrat} \n وقت تفاعله : ${time} **__ ` , components:[row]}).then(m=> {
-   db.set(`userm_${interaction.guild.id}_${interaction.member.id}` , m.id)
-   })
- }
-    if(interaction.customId == "modal3") {
-   let ch = db.get(`channel_${interaction.guild.id}`)
-   let channel = interaction.guild.channels.cache.find(c => c.id == ch)
-   const namegang = interaction.fields.getTextInputValue("namegang")
-   const idgang = interaction.fields.getTextInputValue("idgang")
-   const sectorgang = interaction.fields.getTextInputValue("sectorgang")
-   const hbratgang = interaction.fields.getTextInputValue("5bratgang")
-   const timegang = interaction.fields.getTextInputValue("timegang")
-   let row = new MessageActionRow().addComponents(
-     new Discord.MessageButton()
-     .setLabel("قبول ✅")
-     .setCustomId("acc")
-     .setStyle("SUCCESS"),
-     new Discord.MessageButton()
-     .setLabel("رفض ❌")
-     .setCustomId("dec")
-     .setStyle("DANGER")
-   )
-   interaction.reply({ content: " __** تم إرسال تقديمك ! **__ " , ephemeral:true})
-   db.set(`user_${interaction.member.id}` , interaction.member.id)
-   channel.send({ content:` __** تقديم جديد من : <@${interaction.member.id}> \n  إسم العضو : ${namegang} \n أيدي العضو : \`${idgang}\` \n عصابة العضو : ${sectorgang} \n خبراته : ${hbratgang} \n وقت تفاعله : ${timegang} **__ ` , components:[row]}).then(m=> {
-   db.set(`userm_${interaction.member.id}` , m.id)
-   })
- }
-});
-
-client.on("interactionCreate" , interaction => {
-if(interaction.isButton()) {
-  if(interaction.customId == "acc") {
-   // let high = db.get(`rolehigh_${interaction.guild.id}`)
-   let role1 = db.get(`role_${interaction.guild.id}`)
-   let role3 = db.get(`role2_${interaction.guild.id}`)
-   //  if(!interaction.member.roles.cache.some(r=>r.id == high)) return interaction.reply({content:"You Are Not A High Staff !" , ephemeral:true})
-    let filter = m => m.author.id == interaction.member.id
-    const collector = interaction.channel.createMessageCollector({ filter , max : 1 , time: 15000 });
-    interaction.reply({ content: " __** قم بإرسال أيدي الشخص بالدسكورد ! **__ " , ephemeral:true });
-    collector.on("collect" , m => {
-      let member = interaction.guild.members.cache.find(r=>r.id == m.content)
-      let m1 = db.get(`userm_${m.content}`)
-      let m2 = interaction.channel.messages.cache.find(m=> m.id == m1)
-      let user = db.get(`user_${m.content}`)
-      if(!user) {
-        if(!m1) {
-          m.delete()
-          interaction.editReply({ content: ` __** هذا الشخص لم يقدم من قبل ❌ ${interaction.member} **__ ` }).then(s=> {
-            setTimeout(() => {
-              s.delete()
-            } , 5000);
-          })
-       }}
-      if(user) {
-        if(m1) {
-          let role = interaction.guild.roles.cache.find(r=>r.id == role1)
-          let role2 = interaction.guild.roles.cache.find(r=>r.id == role3)
-            m2.edit({ content:` __** تم قبول : ${member}  **__ ` , components:[]})
-            interaction.deleteReply()
-            member.roles.add(role)
-            member.roles.add(role2)
-            member.send({ content: ` __** لقد تم قبول تقديمك ! **__ ` });
-            db.delete(`user_${m.content}`)
-            db.delete(`userm_${m.content}`)
-            m.delete()
-      }}
-    });
-  }    
-  if(interaction.customId == "dec") {
-    // let high = db.get(`rolehigh_${interaction.guild.id}`)
-  //  if(!interaction.member.roles.cache.some(r=>r.id == high)) return interaction.reply({content:"You Are Not A High Staff !" , ephemeral:true})
-    let filter = m => m.author.id == interaction.member.id
-    const collector = interaction.channel.createMessageCollector({ filter , max : 1 , time: 15000 });
-    interaction.reply({ content: " __** أرسل أيدي الشخص بالدسكورد ! **__ " , ephemeral:true })
-    collector.on("collect" , m => {
-      let member = interaction.guild.members.cache.find(r=>r.id == m.content)
-      let m1 = db.get(`userm_${m.content}`)
-      let m2 = interaction.channel.messages.cache.find(m=> m.id == m1)
-      let user = db.get(`user_${m.content}`)
-      if(!user) {
-        if(!m1) {
-          m.delete()
-          interaction.editReply({ content: ` __** هذا الشخص لم يقدم من قبل ❌ ${interaction.member} **__ ` }).then(s=> {
-            setTimeout(() => {
-              s.delete()
-            } , 5000);
-          })
-       }}
-      if(user) {
-        if(m1) {
-          m2.edit({ content: ` __** تم رفض : ${member} ❌ **__ ` , components:[]})
-          interaction.deleteReply()
-          member.send({ content: `__** لقد تم رفض تقديمك يرجى عدم محاولة التقديم مرى أخرة ! **__ ` });
-          db.delete(`user_${m.content}`)
-          db.delete(`userm_${m.content}`)
-          m.delete()
-      }}
-    });
-  }
-}
-});
 
     client.on("messageCreate" , message => {
       if(message.author.bot) return;
@@ -4747,4 +4405,4 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
          }
                      });
 
-client.login(process.env.token).catch(() => console.log(`[ERROR]: Invalid Token!`));
+client.login(tokenbot).catch(() => console.log(`[ERROR]: Invalid Token!`));
