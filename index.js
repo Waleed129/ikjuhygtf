@@ -69,7 +69,7 @@ const { DiscordModal, ModalBuilder, ModalField } = require("discord-modal");
 DiscordModal(client);
 const cooldown = new Set();
 // تحضير
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/982409404043374602/1058445850730315776/f9e162250956dfd1.jpg");
+let line = new Discord.MessageAttachment("https://media.discordapp.net/attachments/982409404043374602/1088235782919164076/9596a469648c5614.jpg?width=1025&height=100");
 let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/982409404043374602/1058446210513502349/fdbd8ca84ac31ec0.jpg");
 // خط
 const prefix = "-"; // البرفكس
