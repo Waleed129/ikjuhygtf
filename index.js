@@ -3522,11 +3522,11 @@ interaction.member.send({ content: ` __** خيار
 رمان
 فراولة
 بروكلي
-          بطيخ
+بطيخ
 كوسة
-          بصل اخضر
-          سبانخ 
-          مكونات سلطة طعمه جداً . **__ ` });
+بصل اخضر
+سبانخ 
+مكونات سلطة طعمه جداً . **__ ` });
 const row1 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes1"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no1"))
 interaction.message.edit({ content: ` __**  يُمنع رفع السلاح بالمنطقة الآمنة و ذالك مخالف للميثاق العسكري .
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row1] });
@@ -3560,170 +3560,170 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
                        //
                        if(interaction.customId === "yes2") { 
                          dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
+interaction.message.edit({ content:` __** يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
                        }
                        if(interaction.customId === "no2") {
                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
+interaction.message.edit({ content:` __** يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
                        }
                        //
                        if(interaction.customId === "yes3") {
                                          dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
+interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
                        }
                        if(interaction.customId === "no3") {
                                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
+interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
                        }
                        //
                        if(interaction.customId === "yes4") {
                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** اعلى رتبة هو من يقوم بالتنظيم العسكري ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row5] })
+interaction.message.edit({ content:` __** اعلى رتبة هو من يقوم بالتنظيم العسكري ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row5] })
                        }
                        if(interaction.customId === "no4") {
                          dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** اعلى رتبة هو من يقوم بالتنظيم العسكري ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row5] })
+interaction.message.edit({ content:` __** اعلى رتبة هو من يقوم بالتنظيم العسكري ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row5] })
                        }
                        //
                        if(interaction.customId === "yes5") {
                                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
+interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
                        }
                        if(interaction.customId === "no5") {
                          dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
+interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
                        }
                        //
                        if(interaction.customId === "yes6") {
                          dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** إنزال التحية من دون إذن يعد إهانة للضباط ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row7] })
+interaction.message.edit({ content:` __** إنزال التحية من دون إذن يعد إهانة للضباط ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row7] })
                        }
                        if(interaction.customId === "no6") {
                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** إنزال التحية من دون إذن يعد إهانة للضباط ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row7] })
+interaction.message.edit({ content:` __** إنزال التحية من دون إذن يعد إهانة للضباط ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row7] })
                        }
                        //
                        if(interaction.customId === "yes7") {
                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بـ السرعة في الملكية و التصديم و العبث بالممتلكات ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row8] })
+interaction.message.edit({ content:` __** يسمح بـ السرعة في الملكية و التصديم و العبث بالممتلكات ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row8] })
                        }
                        if(interaction.customId === "no7") {
                         dbb.add(`false_${interaction.member.id}`, 1)
-                        interaction.message.edit({ content:` __** يسمح بـ السرعة في الملكية و التصديم و العبث بالممتلكات ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row8] })
+interaction.message.edit({ content:` __** يسمح بـ السرعة في الملكية و التصديم و العبث بالممتلكات ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row8] })
                        }
                        //
                        if(interaction.customId === "yes8") {
                                          dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
+interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
                        }
                        if(interaction.customId === "no8") {
                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
-                       }
+interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
+}
                        //  
                        if(interaction.customId === "yes9") {
                                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row10] })
+interaction.message.edit({ content:` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row10] })
                        }
                        if(interaction.customId === "no9") {
                          dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row10] })
+interaction.message.edit({ content:` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row10] })
                        }
                        //
                        if(interaction.customId === "yes10") {
                          dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** البند الثلاثون هو : إحترام المسؤولين . ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row11] })
+interaction.message.edit({ content:` __** البند الثلاثون هو : إحترام المسؤولين . ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row11] })
                        }
                        if(interaction.customId === "no10") {
                          dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** البند الثلاثون هو : إحترام المسؤولين . ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row11] })
+interaction.message.edit({ content:` __** البند الثلاثون هو : إحترام المسؤولين . ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row11] })
                        }
                        //
                      if(interaction.customId === "yes11") {
                                      dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
+interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
                      }
                      if(interaction.customId === "no11") {
                        dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
+interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
          هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
                      }
                      //
                      if(interaction.customId === "yes12") {
                                      dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصابة و هو ليس مطلوب أو لديه سجل إجرامي ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row13] })
+interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصابة و هو ليس مطلوب أو لديه سجل إجرامي ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row13] })
                      }
                      if(interaction.customId === "no12") {
                        dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصابة و هو ليس مطلوب أو لديه سجل إجرامي ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row13] })
+interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصابة و هو ليس مطلوب أو لديه سجل إجرامي ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row13] })
                      }
                      //
                      if(interaction.customId === "yes13") {
                                      dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
+interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
                      }
                      if(interaction.customId === "no13") {
                                                    dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
+interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
                      }
                      //
                      if(interaction.customId === "yes14") {
                                      dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** التجمهر غرامته 100 ﷼ ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
+interaction.message.edit({ content:` __** التجمهر غرامته 100 ﷼ ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
                      }
                      if(interaction.customId === "no14") {
                        dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** التجمهر غرامته 100 ﷼ ؟
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
+interaction.message.edit({ content:` __** التجمهر غرامته 100 ﷼ ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
                      }
                      //
                      if(interaction.customId === "yes15") {
                        dbb.add(`true_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بإستخدام التيزر في ثلاث حالات هيا : 
-         
-         الحالة الأولى : ان رفض المواطن الإستسلام و إستمر بالهرب .
-         
-         الحالة الثانية : رفع المواطن السلاح عليك .
-         
-         الحالة الثالثة : في حال وجود مطلوب بالمركز .
-         
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
+interaction.message.edit({ content:` __** يسمح بإستخدام التيزر في ثلاث حالات هيا :
+
+الحالة الأولى : ان رفض المواطن الإستسلام و إستمر بالهرب .
+
+الحالة الثانية : رفع المواطن السلاح عليك .
+
+الحالة الثالثة : في حال وجود مطلوب بالمركز .
+
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
                      }
                      if(interaction.customId === "no15") {
                        dbb.add(`false_${interaction.member.id}`, 1)
-         interaction.message.edit({ content:` __** يسمح بإستخدام التيزر في ثلاث حالات هيا : 
-         
-         الحالة الأولى : ان رفض المواطن الإستسلام و إستمر بالهرب .
-         
-         الحالة الثانية : رفع المواطن السلاح عليك .
-         
-         الحالة الثالثة : في حال وجود مطلوب بالمركز .
-         
-         هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
+interaction.message.edit({ content:` __** يسمح بإستخدام التيزر في ثلاث حالات هيا :
+
+الحالة الأولى : ان رفض المواطن الإستسلام و إستمر بالهرب .
+
+الحالة الثانية : رفع المواطن السلاح عليك .
+
+الحالة الثالثة : في حال وجود مطلوب بالمركز .
+
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
                      }
                        //
                        if(interaction.customId === "yes16") {
@@ -3745,23 +3745,23 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
          var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
          var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
          //
-         interaction.message.edit({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : ${interaction.member} .
-          إسم العسكري : ${name} .
-          عمر العسكري : ${aeg} .
-          قطاع العسكري : ${sector} . 
+interaction.message.edit({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : ${interaction.member} .
+إسم العسكري : ${name} .
+عمر العسكري : ${aeg} .
+قطاع العسكري : ${sector} . 
           أيدي العسكري : \`${id}\` .
-          عدد الأجوبة الصحيحة : ${truee} .
-          عدد الأجوبة الخاطئة : ${falsee} .
-          الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
+عدد الأجوبة الصحيحة : ${truee} .
+عدد الأجوبة الخاطئة : ${falsee} .
+الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
          //
-          sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : ${interaction.member} .
-          إسم العسكري : ${name} .
-          عمر العسكري : ${aeg} .
-          قطاع العسكري : ${sector} .
-          أيدي العسكري : \`${id}\` .
-          عدد الأجوبة الصحيحة : ${truee} .
-          عدد الأجوبة الخاطئة : ${falsee} .
-          الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
+sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : ${interaction.member} .
+إسم العسكري : ${name} .
+عمر العسكري : ${aeg} .
+قطاع العسكري : ${sector} .
+أيدي العسكري : \`${id}\` .
+عدد الأجوبة الصحيحة : ${truee} .
+عدد الأجوبة الخاطئة : ${falsee} .
+الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
          //
          w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
          w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
@@ -3800,23 +3800,23 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
          var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
          var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
          //
-         interaction.message.edit({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
-         . إسم العسكري : ${name} 
-         . عمر العسكري : ${aeg} 
-         . قطاع العسكري : ${sector} 
-         . أيدي العسكري : \`${id}\` .
-         . عدد الأجوبة الصحيحة : ${truee} 
-         . عدد الأجوبة الخاطئة : ${falsee} 
-         . الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
+interaction.message.edit({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
+. إسم العسكري : ${name} 
+. عمر العسكري : ${aeg} 
+. قطاع العسكري : ${sector} 
+. أيدي العسكري : \`${id}\` .
+. عدد الأجوبة الصحيحة : ${truee} 
+. عدد الأجوبة الخاطئة : ${falsee} 
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
          //
-          sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
-         . إسم العسكري : ${name} 
-         . عمر العسكري : ${aeg} 
-         . قطاع العسكري : ${sector} 
-         . أيدي العسكري : \`${id}\` .
-         . عدد الأجوبة الصحيحة : ${truee} 
-         . عدد الأجوبة الخاطئة : ${falsee} 
-         . الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
+sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
+. إسم العسكري : ${name} 
+. عمر العسكري : ${aeg} 
+. قطاع العسكري : ${sector} 
+. أيدي العسكري : \`${id}\` .
+. عدد الأجوبة الصحيحة : ${truee} 
+. عدد الأجوبة الخاطئة : ${falsee} 
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
          //
          w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
          w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
@@ -3842,12 +3842,11 @@ client.on('interactionCreate', async interaction => {
 if (!interaction.isCommand()) return;
 if(interaction.commandName == "m6lob") {
   await interaction.deferReply({ephemeral:true});
-  let msaaol8bolalwzarh = interaction.guild.roles.cache.get('1047508183884771409');
-  let msaaol8bolal39abh = interaction.guild.roles.cache.get('948325091480055930');
-  let wzartalda5leuh = interaction.guild.roles.cache.get('948329160479211530');
+  let msaaol8bolalwzarh = interaction.guild.roles.cache.get('1049759101812486214');
+  let msaaol8bolal39abh = interaction.guild.roles.cache.get('1049759214672822303');
+  let wzartalda5leuh = interaction.guild.roles.cache.get('1030773248239095889');
       //
-let channelFBI = client.channels.cache.get("1000517881395675217") 
-let channelPolice = client.channels.cache.get("1082696807672459404")
+let channelFBI = client.channels.cache.get("1049801127186665604") 
 const originalAuthor = interaction.user;
       //
   let alm6lob = interaction.options.getMember("alm6lob")
@@ -3921,7 +3920,7 @@ await interaction.deferReply({ephemeral:true});
 let al3skree = db.get(`al3skre_${interaction.message.id}`)
 let al3skre = interaction.guild.members.cache.get(al3skree);
 //
-interaction.editReply({ content: ` __** يرجى التوجه إلى : <#1047507178010988615> 
+interaction.editReply({ content: ` __** يرجى التوجه إلى : <#1032593047084605440> 
 و الشكوى على ${al3skre} .
 و بالتحديد على الرسالة : [هذي](${interaction.message.url}) . **__ ` });
       }
@@ -3930,7 +3929,7 @@ interaction.editReply({ content: ` __** يرجى التوجه إلى : <#1047507
         await interaction.deferReply({ephemeral:true});
         //
         if (!interaction.member.permissions.has('ADMINISTRATOR'))
-        if (!interaction.member.roles.cache.has('1047508183884771409'))
+        if (!interaction.member.roles.cache.has('1049759101812486214'))
         return interaction.editReply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
         let al3skree = db.get(`al3skre_${interaction.message.id}`)
@@ -3955,7 +3954,7 @@ al3skre.send({ content:  ` __** ${al3skre} تم حذف احد المطلوبين
 alm6lob.send({ content: ` __** ${alm6lob} تم حذف أحد سجلاتك الإجرامية :  
 و بالتحديد هذي التهمة : (${interaction.message.url}) .
 ( و قد كانت من قبل العسكري ${al3skre} ) .
-و أصبح عدد تهمك الأن : ( ${countalthm || 0} )
+و أصبح عدد تهمك الأن : ( ${countt || 0} )
 من قبل المسؤول : ${interaction.user} **__ ` });
 // 
 db.delete(`al3skre_${interaction.message.id}`)
@@ -3978,9 +3977,9 @@ interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
       if(message.author.bot) return;
       let user = message.mentions.users.first() || message.author;
       if(message.content.startsWith(prefix+"تهمي")) {
- /*     if (!message.member.permissions.has('ADMINISTRATOR'))
-      if (!message.member.roles.cache.has('980494295444361216'))
-      return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); */
+      if (!message.member.permissions.has('ADMINISTRATOR'))
+      if (!message.member.roles.cache.has('1060909072297238608'))
+      return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); 
       if(!user){
       
       user = message.author;
@@ -3998,9 +3997,9 @@ interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
       var done 
       if (points >= 0 && points < 5) {
         done = 'عادي';
-      } else if (points >= 5 && points < 8) {
+      } else if (points >= 5 && points < 9) {
         done = 'خطير يجب التبليغ عنه';
-      } else if (points >= 8 && points < 100) {
+      } else if (points >= 9 && points < 100) {
         done = 'مطلوب للإعدام يجب تبليغ القوات الخاصة فوراَ و الهروب من موقعه !';
       };
       //
@@ -4018,13 +4017,13 @@ let embed = new Discord.MessageEmbed()
 client.on("messageCreate", async message => {
         if(message.author.bot) return;
         if(message.content.startsWith(prefix+"فحص")) {
-   /*     if (!message.member.permissions.has('ADMINISTRATOR'))
-        if (!message.member.roles.cache.has('980494295444361216'))
-        return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); */
+       if (!message.member.permissions.has('ADMINISTRATOR'))
+        if (!message.member.roles.cache.has('1030773248239095889'))
+        return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); 
         //
-/* if (message.channel.id !== "1000517881395675217") 
-return message.reply({ content: ` __** :emoji_9: يرجى الفحص بالشات المخصص له ! <#1000517881395675217> **__ ` }).then(message => setTimeout(() => message.delete(), 5000));
-// */
+if (message.channel.id !== "1088232586557538364") 
+return message.reply({ content: ` __** يرجى الفحص بالشات المخصص له ! <#1088232586557538364> **__ ` }).then(message => setTimeout(() => message.delete(), 5000));
+// 
 let member = message.mentions.members.first();
 let user = message.mentions.members.first();
 //
@@ -4044,9 +4043,9 @@ if(user.bot) return message.reply({ content: " __** لا يمكن فحص الب�
         var done 
         if (points >= 0 && points < 5) {
           done = 'عادي قم بإتخاذ الإجرائات العادية معاه';
-        } else if (points >= 5 && points < 8) {
+        } else if (points >= 5 && points < 9) {
           done = 'خطير يجب تفتيشه';
-        } else if (points >= 8 && points < 100) {
+        } else if (points >= 9 && points < 100) {
           done = 'يجب إعدامه فوراَ ! كلبشه و عمم للقوات الخاصة في الراديو .';
         };
         //
