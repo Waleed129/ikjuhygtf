@@ -37,7 +37,7 @@ const moment = require("moment")
 require("moment-duration-format");
 //
 const Database = require("st.db")
-const db = new Database({path: "database.json"})
+// const db = new Database({path: "database.json"})
 const dbb = new Database({path: "tf3el.json"})
 const dbp = new Database({path: "points.json"})
 const dbt = new Database({path: "ticket.json"})
@@ -1457,13 +1457,13 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         member.roles.remove(mtlob);
         member.roles.remove(anzaraol);
         member.roles.remove(anzartane);
-        member.roles.remove(mrkzal3mluat);
+//        member.roles.remove(mrkzal3mluat);
         member.roles.remove(medaleaol);
         member.roles.remove(medaletane);
         member.roles.remove(gaad);
-        member.roles.remove(mbd3);
-        member.roles.remove(adare);
-        member.roles.remove(astfaf);
+//        member.roles.remove(mbd3);
+//        member.roles.remove(adare);
+//        member.roles.remove(astfaf);
         member.roles.remove(t7t);
         member.roles.remove(gnde);
         member.roles.remove(gndeaol);
@@ -1477,7 +1477,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         member.roles.remove(fre8);
         member.roles.remove(fre8aol);
         member.roles.remove(da7leh);
-        member.roles.remove(hrs);
+//        member.roles.remove(hrs);
         member.roles.remove(amn);
         member.roles.remove(ha9h);
                //
@@ -3850,14 +3850,13 @@ let channelFBI = client.channels.cache.get("1049801127186665604")
 const originalAuthor = interaction.user;
       //
   let alm6lob = interaction.options.getMember("alm6lob")
-  //
   var done
   if (alm6lob == null) {
   done = "لم يتم التعرف على هوية المطلوب بعد"
   } else if (alm6lob == alm6lob) {
 if (alm6lob.user.id === interaction.user.id) return interaction.editReply({ content: ` __** لا يمكنك وضع نفسك مطلوب ! **__ `,ephemeral:true });
   done = `${alm6lob.id}`
-  db.add(`3ddthmh_${done}`,1)
+  dbm.add(`3ddthmh_${done}`,1)
  }; 
   //
    var done3
@@ -3902,10 +3901,10 @@ new Discord.MessageButton().setLabel(`حذف المطلوب`).setEmoji("❌").se
   //
 await interaction.editReply({ content: ` __** تم وضعه مطلوب , نشكرك ${interaction.user} على حرصك لحماية الوطن . **__ ` });
 await interaction.channel.send({ content: ` __** ${wzartalda5leuh},${msaaol8bolalwzarh},${msaaol8bolal39abh}  **__ `, embeds:[embed], components:[t788] }).then(m=> {
-db.set(`al3skre_${m.id}`,originalAuthor.id)
-db.set(`alm6lob_${m.id}`,done)
-db.set(`alm6lobimg_${done}`,image)
-db.set(`alrsalh_${m.id}` , done)
+dbm.set(`al3skre_${m.id}`,originalAuthor.id)
+dbm.set(`alm6lob_${m.id}`,done)
+dbm.set(`alm6lobimg_${done}`,image)
+dbm.set(`alrsalh_${m.id}` , done)
 })
 //
 }}
@@ -3917,7 +3916,7 @@ if (!interaction.isButton()) return;
 if(interaction.customId == "a3tr9'3lal3skre") {
 await interaction.deferReply({ephemeral:true});
 //
-let al3skree = db.get(`al3skre_${interaction.message.id}`)
+let al3skree = dbm.get(`al3skre_${interaction.message.id}`)
 let al3skre = interaction.guild.members.cache.get(al3skree);
 //
 interaction.editReply({ content: ` __** يرجى التوجه إلى : <#1032593047084605440> 
@@ -3932,15 +3931,15 @@ interaction.editReply({ content: ` __** يرجى التوجه إلى : <#1032593
         if (!interaction.member.roles.cache.has('1049759101812486214'))
         return interaction.editReply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
-        let al3skree = db.get(`al3skre_${interaction.message.id}`)
+        let al3skree = dbm.get(`al3skre_${interaction.message.id}`)
         let al3skre = interaction.guild.members.cache.get(al3skree);
         //
-        let alm6lobb = db.get(`alm6lob_${interaction.message.id}`)
+        let alm6lobb = dbm.get(`alm6lob_${interaction.message.id}`)
         let alm6lob = interaction.guild.members.cache.get(alm6lobb);
         //
-        let countt = db.fetch(`3ddthmh_${interaction.message.id}`)
+        let countt = dbm.fetch(`3ddthmh_${interaction.message.id}`)
 //
-        let alrsalhh = db.get(`alrsalh_${interaction.message.id}`)
+        let alrsalhh = dbm.get(`alrsalh_${interaction.message.id}`)
         let alrsalh = interaction.guild.members.cache.get(alrsalhh);
         //
 interaction.editReply({ content: ` __** جاري حذف المطلوب ... **__ ` });
@@ -3957,9 +3956,9 @@ alm6lob.send({ content: ` __** ${alm6lob} تم حذف أحد سجلاتك الإ
 و أصبح عدد تهمك الأن : ( ${countt || 0} )
 من قبل المسؤول : ${interaction.user} **__ ` });
 // 
-db.delete(`al3skre_${interaction.message.id}`)
-db.delete(`alm6lob_${interaction.message.id}`)
-db.delete(`alrsalh_${interaction.message.id}`)
+dbm.delete(`al3skre_${interaction.message.id}`)
+dbm.delete(`alm6lob_${interaction.message.id}`)
+dbm.delete(`alrsalh_${interaction.message.id}`)
 //
 var done
   if (countt == null) {
@@ -3967,7 +3966,7 @@ var done
   } else if (countt == countt) {
   done = countt -= 1;
   }; 
-db.set(`3ddthmh_${interaction.message.id}`,done)
+dbm.set(`3ddthmh_${interaction.message.id}`,done)
 //
 interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
               }
@@ -3985,13 +3984,13 @@ interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
       user = message.author;
       }
       // 
-      if(!db.has(`3ddthmh_${user.id}`)) return message.reply({ content: ` __** لا توجد تهم لـ ${user.id} ! :x: **__ ` });
-      if(!db.has(`alm6lobimg_${user.id}`)) return message.reply({ content: ` __** لا توجد صورة لـ ${user} ! :x: **__ ` });
+      if(!dbm.has(`3ddthmh_${user.id}`)) return message.reply({ content: ` __** لا توجد تهم لـ {user} ! :x: **__ ` });
+      if(!dbm.has(`alm6lobimg_${user.id}`)) return message.reply({ content: ` __** لا توجد صورة لـ ${user} ! :x: **__ ` });
       //
       message.reply({ content: ` __** رجاءً إنتظر ثواني معدودة … **__ ` }).then(async message => {
       //
-      let points = db.get(`3ddthmh_${user.id}`);
-      let img = db.get(`alm6lobimg_${user.id}`);
+      let points = dbm.get(`3ddthmh_${user.id}`);
+      let img = dbm.get(`alm6lobimg_${user.id}`);
   //    let imgg = new Discord.MessageAttachment(img);
       //
       var done 
@@ -4032,13 +4031,13 @@ if(message.author.id == user.id) return message.reply({ content: ` __** لا ي�
 if(user.bot) return message.reply({ content: " __** لا يمكن فحص البوتات :x: **__ " });
 //
         // 
-        if(!db.has(`3ddthmh_${user.id}`)) return message.reply({ content: ` __** لا توجد تهم لـ ${user} ! :x: **__ ` });
-        if(!db.has(`alm6lobimg_${user.id}`)) return message.reply({ content: ` __** لا توجد صورة لـ ${user} ! :x: **__ ` });
+        if(!dbm.has(`3ddthmh_${user.id}`)) return message.reply({ content: ` __** لا توجد تهم لـ ${user} ! :x: **__ ` });
+        if(!dbm.has(`alm6lobimg_${user.id}`)) return message.reply({ content: ` __** لا توجد صورة لـ ${user} ! :x: **__ ` });
         //
         message.reply({ content: ` __** رجاءً إنتظر ثواني معدودة … **__ ` }).then(async message => {
         //
-        let points = db.get(`3ddthmh_${user.id}`);
-        let img = db.get(`alm6lobimg_${user.id}`);
+        let points = dbm.get(`3ddthmh_${user.id}`);
+        let img = dbm.get(`alm6lobimg_${user.id}`);
         //
         var done 
         if (points >= 0 && points < 5) {
