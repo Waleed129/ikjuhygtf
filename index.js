@@ -3984,7 +3984,7 @@ interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
       user = message.author;
       }
       // 
-      if(!dbm.has(`3ddthmh_${user.id}`)) return message.reply({ content: ` __** لا توجد تهم لـ {user} ! :x: **__ ` });
+      if(!dbm.has(`3ddthmh_${user.id}`)) return message.reply({ content: ` __** لا توجد تهم لـ ${user} ! :x: **__ ` });
       if(!dbm.has(`alm6lobimg_${user.id}`)) return message.reply({ content: ` __** لا توجد صورة لـ ${user} ! :x: **__ ` });
       //
       message.reply({ content: ` __** رجاءً إنتظر ثواني معدودة … **__ ` }).then(async message => {
