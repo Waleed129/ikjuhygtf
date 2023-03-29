@@ -3298,7 +3298,7 @@ if (interaction.member.bot || !interaction.channel.guild || interaction.member.r
                          .setThumbnail(interaction.guild.iconURL())
                          .setColor("RANDOM")
                          .setTimestamp();
-                         interaction.channel.send({ content: ` __** السؤال الأول , <@${interaction.member.id}> : **__ `, embeds: [embed] })
+interaction.channel.send({ content: ` __** السؤال الأول , <@${interaction.member.id}> : **__ `, embeds: [embed] })
                          .then(message => {
                          message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
                          .then(collected => {
@@ -3315,7 +3315,7 @@ if (interaction.member.bot || !interaction.channel.guild || interaction.member.r
                          .setThumbnail(interaction.guild.iconURL())
                          .setColor("RANDOM")
                          .setTimestamp();
-                         message.edit({ content: ` __** السؤال الثاني , <@${interaction.member.id}> : **__ `, embeds: [embed2] })
+message.edit({ content: ` __** السؤال الثاني , <@${interaction.member.id}> : **__ `, embeds: [embed2] })
                          .then(message => {
                          message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
                          .then(collected => {
@@ -3332,7 +3332,7 @@ if (interaction.member.bot || !interaction.channel.guild || interaction.member.r
                  .setThumbnail(interaction.guild.iconURL())
                  .setColor("RANDOM")
                  .setTimestamp();
-                 message.edit({ content: ` __** السؤال الثالث , <@${interaction.member.id}> : **__ `, embeds: [embed3] })
+message.edit({ content: ` __** السؤال الثالث , <@${interaction.member.id}> : **__ `, embeds: [embed3] })
                  .then(message => {
                  message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
                  .then(collected => {
@@ -3349,7 +3349,7 @@ if (interaction.member.bot || !interaction.channel.guild || interaction.member.r
          .setThumbnail(interaction.guild.iconURL())
          .setColor("RANDOM")
          .setTimestamp();
-         message.edit({ content: ` __** السؤال الرابع , <@${interaction.member.id}> : **__ `, embeds: [embed4] })
+message.edit({ content: ` __** السؤال الرابع , <@${interaction.member.id}> : **__ `, embeds: [embed4] })
          .then(message => {
          message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
          .then(collected => {
@@ -3401,7 +3401,7 @@ interaction.message.edit({ content: ` __** حسناَ بعدما قمت بتأك
                    .setThumbnail(interaction.guild.iconURL())
                    .setColor("RANDOM")
                    .setTimestamp();
-                  interaction.message.edit({ content: ` __** يرجى كتابة اسمك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
+interaction.message.edit({ content: ` __** يرجى كتابة اسمك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
                    .then(message => {
                    message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
                    .then(collected => {
@@ -3415,7 +3415,7 @@ interaction.message.edit({ content: ` __** حسناَ بعدما قمت بتأك
          var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
          const t788 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yest788"), new Discord.MessageButton().setLabel(`لا`).setEmoji("❌").setStyle("DANGER").setCustomId("not788"));
          //
-         message.edit({ content: ` __** FBI Police || التحقق العسكري . \n هوية العسكري : <@${interaction.member.id}> . \n إسم العسكري : ${name} . \n عمر العسكري : ${aeg} . \n ايدي العسكري : \`${id}\` . \n قطاع العسكري : ${sector} . \n هل هذه المعلومات صحيحة ؟ . **__ `,embeds:[],components:[t788] });
+message.edit({ content: ` __** FBI Police || التحقق العسكري . \n هوية العسكري : <@${interaction.member.id}> . \n إسم العسكري : ${name} . \n عمر العسكري : ${aeg} . \n ايدي العسكري : \`${id}\` . \n قطاع العسكري : ${sector} . \n هل هذه المعلومات صحيحة ؟ . **__ `,embeds:[],components:[t788] });
          })})
                  }
                    //
@@ -3430,7 +3430,7 @@ interaction.message.edit({ content: ` __** حسناَ بعدما قمت بتأك
                    .setThumbnail(interaction.guild.iconURL())
                    .setColor("RANDOM")
                    .setTimestamp();
-                  interaction.message.edit({ content: ` __** يرجى كتابة عمرك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
+interaction.message.edit({ content: ` __** يرجى كتابة عمرك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
                    .then(message => {
                    message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
                    .then(collected => {
@@ -3459,7 +3459,7 @@ interaction.message.edit({ content: ` __** حسناَ بعدما قمت بتأك
                      .setThumbnail(interaction.guild.iconURL())
                      .setColor("RANDOM")
                      .setTimestamp();
-                    interaction.message.edit({ content: ` __** يرجى كتابة ايديك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
+interaction.message.edit({ content: ` __** يرجى كتابة ايديك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
                      .then(message => {
                      message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
                      .then(collected => {
@@ -3488,7 +3488,7 @@ interaction.message.edit({ content: ` __** حسناَ بعدما قمت بتأك
                        .setThumbnail(interaction.guild.iconURL())
                        .setColor("RANDOM")
                        .setTimestamp();
-                      interaction.message.edit({ content: ` __** يرجى كتابة قطاعك العسكري بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
+interaction.message.edit({ content: ` __** يرجى كتابة قطاعك العسكري بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
                        .then(message => {
                        message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
                        .then(collected => {
@@ -3510,20 +3510,20 @@ interaction.message.edit({ content: ` __** حسناَ بعدما قمت بتأك
         w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
          w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
          w8wanen3.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false }); 
-         interaction.member.send({ content: ` __** خيار
-         طماطم
-         طماطم
-          بقدونس
-          كسبره
-         دم
-         تفاح اخضر
-          فجل
-         خس
-          رمان
-         فراولة
-          بروكلي
+interaction.member.send({ content: ` __** خيار
+طماطم
+طماطم
+بقدونس
+كسبره
+دم
+تفاح اخضر
+فجل
+خس
+رمان
+فراولة
+بروكلي
           بطيخ
-           كوسة
+كوسة
           بصل اخضر
           سبانخ 
           مكونات سلطة طعمه جداً . **__ ` });
@@ -3836,5 +3836,229 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
          }, 90000)
          }
                      });
+
+
+client.on('interactionCreate', async interaction => {
+if (!interaction.isCommand()) return;
+if(interaction.commandName == "m6lob") {
+  await interaction.deferReply({ephemeral:true});
+  let msaaol8bolalwzarh = interaction.guild.roles.cache.get('1047508183884771409');
+  let msaaol8bolal39abh = interaction.guild.roles.cache.get('948325091480055930');
+  let wzartalda5leuh = interaction.guild.roles.cache.get('948329160479211530');
+      //
+let channelFBI = client.channels.cache.get("1000517881395675217") 
+let channelPolice = client.channels.cache.get("1082696807672459404")
+const originalAuthor = interaction.user;
+      //
+  let alm6lob = interaction.options.getMember("alm6lob")
+  //
+  var done
+  if (alm6lob == null) {
+  done = "لم يتم التعرف على هوية المطلوب بعد"
+  } else if (alm6lob == alm6lob) {
+if (alm6lob.user.id === interaction.user.id) return interaction.editReply({ content: ` __** لا يمكنك وضع نفسك مطلوب ! **__ `,ephemeral:true });
+  done = `${alm6lob.id}`
+  db.add(`3ddthmh_${done}`,1)
+ }; 
+  //
+   var done3
+  if (alm6lob == null) {
+  done3 = "لم يتم التعرف على هوية المطلوب بعد"
+  } else if (alm6lob == alm6lob) {
+  if (alm6lob.user.id === interaction.user.id) return interaction.editReply({ content: ` __** لا يمكنك وضع نفسك مطلوب ! **__ `,ephemeral:true });
+  done3 = `${alm6lob}`
+  }; 
+  //
+        let althmh = interaction.options.getString("althmh")
+        if (!althmh) return interaction.editReply({ content: ` __** يجب تحديد التهم ! **__ ` });
+        //
+        let al39abh = interaction.options.getRole("al39abh")
+        var done2
+  if (al39abh == null) {
+  done2 = "لم يتم التعرف على العصابة بعد"
+  } else if (al39abh == al39abh) {
+  done2 = `${al39abh}`
+  };  
+//
+let image = interaction.options.getString("image")
+if(image.includes("gif") || image.includes(".gif") || image.includes(".PNG") || image.includes(".JPG") || image.includes("PNG") 
+|| image.includes("JPG") || !image.includes("https://cdn.discordapp.com/attachments")) {
+interaction.editReply({ content: ` __** يجب ان تكون صورة و بصيغة : png , jpg فقط ! **__ ` });
+  } else {
+    //
+  let embed = new Discord.MessageEmbed()
+  .setAuthor({name:`${interaction.member.displayName}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+  .setColor("RANDOM")
+  .setFooter({text:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+  .setTitle(`مطلوب جديد !`)
+  .setImage(image)
+  .setDescription(` __** العسكري : ${originalAuthor} . \n المطلوب : ${done3} . \n التهمة : ${althmh} . \n عصابة المطلوب : ${done2} . \n صورة المطلوب : **__ `)
+  .setTimestamp();
+  //
+const t788 = new Discord.MessageActionRow()
+.addComponents(
+new Discord.MessageButton().setLabel(`الإعتراض على العسكري`).setEmoji("✅").setStyle("SUCCESS").setCustomId("a3tr9'3lal3skre"), 
+new Discord.MessageButton().setLabel(`حذف المطلوب`).setEmoji("❌").setStyle("DANGER").setCustomId("7dfalm6lob")
+);
+  //
+await interaction.editReply({ content: ` __** تم وضعه مطلوب , نشكرك ${interaction.user} على حرصك لحماية الوطن . **__ ` });
+await interaction.channel.send({ content: ` __** ${wzartalda5leuh},${msaaol8bolalwzarh},${msaaol8bolal39abh}  **__ `, embeds:[embed], components:[t788] }).then(m=> {
+db.set(`al3skre_${m.id}`,originalAuthor.id)
+db.set(`alm6lob_${m.id}`,done)
+db.set(`alm6lobimg_${done}`,image)
+db.set(`alrsalh_${m.id}` , done)
+})
+//
+}}
+// 
+});
+
+client.on('interactionCreate', async interaction => {
+if (!interaction.isButton()) return;
+if(interaction.customId == "a3tr9'3lal3skre") {
+await interaction.deferReply({ephemeral:true});
+//
+let al3skree = db.get(`al3skre_${interaction.message.id}`)
+let al3skre = interaction.guild.members.cache.get(al3skree);
+//
+interaction.editReply({ content: ` __** يرجى التوجه إلى : <#1047507178010988615> 
+و الشكوى على ${al3skre} .
+و بالتحديد على الرسالة : [هذي](${interaction.message.url}) . **__ ` });
+      }
+      //
+      if(interaction.customId == "7dfalm6lob") {
+        await interaction.deferReply({ephemeral:true});
+        //
+        if (!interaction.member.permissions.has('ADMINISTRATOR'))
+        if (!interaction.member.roles.cache.has('1047508183884771409'))
+        return interaction.editReply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+    //
+        let al3skree = db.get(`al3skre_${interaction.message.id}`)
+        let al3skre = interaction.guild.members.cache.get(al3skree);
+        //
+        let alm6lobb = db.get(`alm6lob_${interaction.message.id}`)
+        let alm6lob = interaction.guild.members.cache.get(alm6lobb);
+        //
+        let countt = db.fetch(`3ddthmh_${interaction.message.id}`)
+//
+        let alrsalhh = db.get(`alrsalh_${interaction.message.id}`)
+        let alrsalh = interaction.guild.members.cache.get(alrsalhh);
+        //
+interaction.editReply({ content: ` __** جاري حذف المطلوب ... **__ ` });
+//
+al3skre.send({ content:  ` __** ${al3skre} تم حذف احد المطلوبين :
+و بالتحديد هذا : (${interaction.message.url}) المطلوب  .
+( المطلوب كان : ${alm6lob} ) .
+من قبل المسؤول  ${interaction.user} .
+للإعتراض يرجى التوجه لـ <#a> **__ ` });
+// 
+alm6lob.send({ content: ` __** ${alm6lob} تم حذف أحد سجلاتك الإجرامية :  
+و بالتحديد هذي التهمة : (${interaction.message.url}) .
+( و قد كانت من قبل العسكري ${al3skre} ) .
+و أصبح عدد تهمك الأن : ( ${countalthm || 0} )
+من قبل المسؤول : ${interaction.user} **__ ` });
+// 
+db.delete(`al3skre_${interaction.message.id}`)
+db.delete(`alm6lob_${interaction.message.id}`)
+db.delete(`alrsalh_${interaction.message.id}`)
+//
+var done
+  if (countt == null) {
+  done = 0
+  } else if (countt == countt) {
+  done = countt -= 1;
+  }; 
+db.set(`3ddthmh_${interaction.message.id}`,done)
+//
+interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
+              }
+    });
+
+    client.on("messageCreate", async message => {
+      if(message.author.bot) return;
+      let user = message.mentions.users.first() || message.author;
+      if(message.content.startsWith(prefix+"تهمي")) {
+ /*     if (!message.member.permissions.has('ADMINISTRATOR'))
+      if (!message.member.roles.cache.has('980494295444361216'))
+      return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); */
+      if(!user){
+      
+      user = message.author;
+      }
+      // 
+      if(!db.has(`3ddthmh_${user.id}`)) return message.reply({ content: ` __** لا توجد تهم لـ ${user.id} ! :x: **__ ` });
+      if(!db.has(`alm6lobimg_${user.id}`)) return message.reply({ content: ` __** لا توجد صورة لـ ${user} ! :x: **__ ` });
+      //
+      message.reply({ content: ` __** رجاءً إنتظر ثواني معدودة … **__ ` }).then(async message => {
+      //
+      let points = db.get(`3ddthmh_${user.id}`);
+      let img = db.get(`alm6lobimg_${user.id}`);
+  //    let imgg = new Discord.MessageAttachment(img);
+      //
+      var done 
+      if (points >= 0 && points < 5) {
+        done = 'عادي';
+      } else if (points >= 5 && points < 8) {
+        done = 'خطير يجب التبليغ عنه';
+      } else if (points >= 8 && points < 100) {
+        done = 'مطلوب للإعدام يجب تبليغ القوات الخاصة فوراَ و الهروب من موقعه !';
+      };
+      //
+let embed = new Discord.MessageEmbed()
+.setColor("RANDOM")
+.setTitle(`معرفة عدد تهمك او تهم شخص أخر !`)
+.setImage(img)
+.setDescription(` __** عدد تهم العضو : ${user} هيا : "${points || 0}" . \n خطورة المطلوب : ${done} . \n صورة المطلوب : **__ `)
+.setTimestamp();
+      //
+      message.edit({ content:'تفضل :',embeds:[embed] });
+    })
+      }}); 
+
+client.on("messageCreate", async message => {
+        if(message.author.bot) return;
+        if(message.content.startsWith(prefix+"فحص")) {
+   /*     if (!message.member.permissions.has('ADMINISTRATOR'))
+        if (!message.member.roles.cache.has('980494295444361216'))
+        return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); */
+        //
+/* if (message.channel.id !== "1000517881395675217") 
+return message.reply({ content: ` __** :emoji_9: يرجى الفحص بالشات المخصص له ! <#1000517881395675217> **__ ` }).then(message => setTimeout(() => message.delete(), 5000));
+// */
+let member = message.mentions.members.first();
+let user = message.mentions.members.first();
+//
+if (!member) return message.reply({ content: ' __** منشن العضو **__ ' });
+if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك فحص نفسك ! **__ ` });
+if(user.bot) return message.reply({ content: " __** لا يمكن فحص البوتات :x: **__ " });
+//
+        // 
+        if(!db.has(`3ddthmh_${user.id}`)) return message.reply({ content: ` __** لا توجد تهم لـ ${user} ! :x: **__ ` });
+        if(!db.has(`alm6lobimg_${user.id}`)) return message.reply({ content: ` __** لا توجد صورة لـ ${user} ! :x: **__ ` });
+        //
+        message.reply({ content: ` __** رجاءً إنتظر ثواني معدودة … **__ ` }).then(async message => {
+        //
+        let points = db.get(`3ddthmh_${user.id}`);
+        let img = db.get(`alm6lobimg_${user.id}`);
+        //
+        var done 
+        if (points >= 0 && points < 5) {
+          done = 'عادي قم بإتخاذ الإجرائات العادية معاه';
+        } else if (points >= 5 && points < 8) {
+          done = 'خطير يجب تفتيشه';
+        } else if (points >= 8 && points < 100) {
+          done = 'يجب إعدامه فوراَ ! كلبشه و عمم للقوات الخاصة في الراديو .';
+        };
+        //
+  let embed = new Discord.MessageEmbed()
+  .setColor("RANDOM")
+  .setTitle(`فحص الأعضاء !`)
+  .setImage(img)
+  .setDescription(` __** عدد تهم العضو : ${user} هيا : "${points || 0}" . \n خطورته : ${done} . \n صورته : **__ `)
+  .setTimestamp();
+        //
+message.edit({ content:` __** اذا لم تتطابق الصورة مع من تراه أمامك : \n  فقم بوضع سجل جديد له (m6lob/) . **__ `,embeds:[embed]  });
+      })
+        }}); 
 
 client.login(tokenbot).catch(() => console.log(`[ERROR]: Invalid Token!`));
