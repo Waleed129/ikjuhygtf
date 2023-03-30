@@ -3510,7 +3510,7 @@ interaction.message.edit({ content: ` __** يرجى كتابة قطاعك الع
         w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
          w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
          w8wanen3.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false }); 
-interaction.member.send({ content: ` __** خيار
+/* interaction.member.send({ content: ` __** خيار
 طماطم
 طماطم
 بقدونس
@@ -3526,7 +3526,7 @@ interaction.member.send({ content: ` __** خيار
 كوسة
 بصل اخضر
 سبانخ 
-مكونات سلطة طعمه جداً . **__ ` });
+مكونات سلطة طعمه جداً . **__ ` }); */
 const row1 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes1"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no1"))
 interaction.message.edit({ content: ` __**  يُمنع رفع السلاح بالمنطقة الآمنة و ذالك مخالف للميثاق العسكري .
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row1] });
