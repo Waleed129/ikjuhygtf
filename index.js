@@ -1270,7 +1270,7 @@ client.on("messageCreate", async message => {
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
         //
-        if(db.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** تم فصل العسكري مسبقاَ ! **__ ` , ephemeral: true });
+        if(dbf9l.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** تم فصل العسكري مسبقاَ ! **__ ` , ephemeral: true });
         //
         let ch = dbb.get(`logtf3el_${message.guild.id}`)
         let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
@@ -3893,7 +3893,8 @@ const originalAuthor = interaction.user;
   done = "لم يتم التعرف على هوية المطلوب بعد"
   } else if (alm6lob == alm6lob) {
 if (alm6lob.user.id === interaction.user.id) return interaction.editReply({ content: ` __** لا يمكنك وضع نفسك مطلوب ! **__ `,ephemeral:true });
-if (alm6lob.user.roles.cache.has('1030773248239095889')) return interaction.editReply({ content: ' __** لا يمكنك وضع العساكر مطلوبين ! **__ ' });
+let da7leh = interaction.guild.roles.cache.get('980494313295331328') || interaction.guild.roles.cache.get('1030773248239095889');
+if(alm6lob.roles.cache.some(r=> r.id == da7leh)) return interaction.editReply({ content: ` __** لا يمكنك وضع العساكر كمطلوبين ! **__ ` });
   done = `${alm6lob.id}`
   dbm.add(`3ddthmh_${done}`,1)
  }; 
