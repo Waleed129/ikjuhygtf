@@ -3940,7 +3940,7 @@ new Discord.MessageButton().setLabel(`حذف المطلوب`).setEmoji("❌").se
 );
   //
 await interaction.editReply({ content: ` __** تم وضعه مطلوب , نشكرك ${interaction.user} على حرصك لحماية الوطن . **__ ` });
-await channelFBI.send({ content: ` __** ${wzartalda5leuh},${msaaol8bolalwzarh},${msaaol8bolal39abh}  **__ `, embeds:[embed], components:[t788] }).then(m=> {
+await channelFBI.send({ content: ` __** ${wzartalda5leuh},${msaaol8bolalwzarh},${msaaol8bolal39abh}  **__ `, embeds:[embed], components:[t788], files: [line] }).then(m=> {
 dbm.set(`al3skre_${m.id}`,originalAuthor.id)
 dbm.set(`alm6lob_${m.id}`,done)
 dbm.set(`alm6lobimg_${done}`,image)
@@ -4019,8 +4019,11 @@ interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
       if (!message.member.permissions.has('ADMINISTRATOR'))
       if (!message.member.roles.cache.has('1060909072297238608'))
       return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); 
-      if(!user){
-      
+        if (message.channel.id !== "1088232815289716757") 
+return message.reply({ content: ` __** فقط في : <#1088232815289716757> **__ ` }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete()
+// 
+      if(!user){   
       user = message.author;
       }
       // 
@@ -4083,7 +4086,7 @@ if(user.bot) return message.reply({ content: " __** لا يمكن فحص الب�
         if (points >= 0 && points < 5) {
           done = 'عادي قم بإتخاذ الإجرائات العادية معاه';
         } else if (points >= 5 && points < 9) {
-          done = 'خطير يجب تفتيشه';
+          done = 'خطير يجب كلبشته و التحقيق معه';
         } else if (points >= 9 && points < 100) {
           done = 'يجب إعدامه فوراَ ! كلبشه و عمم للقوات الخاصة في الراديو .';
         };
