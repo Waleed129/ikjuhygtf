@@ -1,6 +1,6 @@
 process.on("unhandledRejection", error => {
-  return console.log(error)
-}); // يمنع ايرور عن اطفاء البروجكت 
+  return console.log(`error:${error}`)
+}); // يمنع ايرور عن اطفاء البروجكت  
 //
 require("events").EventEmitter.defaultMaxListeners = 9999999999999999999999999999; // ايفنت
 //
