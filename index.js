@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
   <center><h1>we!!<h1><p>we!
   </body>`)
 });
-app.listen(8000, function () {
+app.listen(1988, function () {
   console.log('Example app listening on port 8000!');
  });
 //
@@ -71,7 +71,6 @@ const client = new Client({
   ],
 });
 // انتيست
-
 const { DiscordModal, ModalBuilder, ModalField } = require("discord-modal");
 DiscordModal(client);
 const cooldown = new Set();
@@ -130,7 +129,7 @@ const rest = new REST({ version: '9' }).setToken(tokenbot);
 
  client.on("messageCreate", message => {
   if (message.content.startsWith(prefix+'إسم-البوت')) {
-    if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
+    if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت اونر البوت لا تحاول هعهعهعهع **__ ' })
     let args = message.content.split(" ").slice(1).join(" ")
     if (!args) return message.reply({ content: ' __** إكتب الإسم الجديد ! **__ ' })
     client.user.setUsername(args)
@@ -142,7 +141,7 @@ const rest = new REST({ version: '9' }).setToken(tokenbot);
 
 client.on("messageCreate", message => {
 if (message.content.startsWith(prefix+'أفتار-البوت')) {
-if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' });
+if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت اونر البوت لا تحاول هعهعهعهع **__ ' });
 let args = message.content.split(" ");
 let avatar = args.slice(1).join(" ");
 if (!avatar) return message.reply({ content: ` __** إرسل الأفتار ! **__ ` });
@@ -155,7 +154,7 @@ client.on('messageCreate', message => {
   let guildID = message.content.split(' ')[1]
   let guild = client.guilds.cache.get(guildID)
   if (message.content.startsWith(prefix+'لفت')) {
-    if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
+    if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت اونر البوت لا تحاول هعهعهعهع **__ ' })
     if (!guild) return message.reply({ content: '__** يا مصدع ارسل أيدي السيرفر ! **__' })
     message.reply({ content: `__** اخخخخخخخ وداعاً جاري تسجيل خروجي من السيرفر 
 
@@ -186,6 +185,7 @@ message.reply({ content: ` ** ${servers} **` });
 
   client.on('messageCreate', async message => {
     if(message.author.bot) return;
+    if (message.guild.id == '980493720233316372') {
     if(message.content === prefix+'توضيح') {
     let row = new Discord.MessageActionRow()
     .addComponents(
@@ -220,6 +220,7 @@ message.reply({ content: ` ** ${servers} **` });
     .setDescription('لـ رؤية خريطة التوضيح قم بالضغط على الزر اللذي بالأسفل و تحديد ما تريده')
    await message.reply({ embeds: [embed], components: [row] });
   }
+    }
     });
 
   client.on("interactionCreate" , interaction => {
@@ -267,6 +268,7 @@ message.reply({ content: ` ** ${servers} **` });
 
 client.on("messageCreate" , message => {
   if(message.author.bot) return;
+  if (message.guild.id == '980493720233316372') {
   if(message.content.startsWith(prefix+"لوق-التفعيل")) {
     if(!message.member.permissions.has("ADMINISTRATOR")) return;
     let channel = message.mentions.channels.first()
@@ -274,11 +276,13 @@ client.on("messageCreate" , message => {
     dbb.set(`logtf3el_${message.guild.id}` , channel.id)
     message.reply({ content: ` > __** تم تعيين ${channel} كـ لوق تفعيل **__ ` })
   }
+  }
 });
 
 
 client.on("messageCreate", async message => {
   if(message.author.bot) return;
+  if (message.guild.id == '980493720233316372') {
   if (message.content.startsWith(prefix+"تفعيل")) {
  let member = message.mentions.members.first();
      let user = message.mentions.members.first();
@@ -365,7 +369,7 @@ client.on("messageCreate", async message => {
 //
       dbb.add(`codeamn_${message.guild.id}`, 1)
       user.setNickname(`${idps4} ( U-${count || 0} )`);
-      amn3am.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : U-${count || 0} \n قطاعه : <@&980494327371399218> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+      amn3am.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : U-${count || 0} \n قطاعه : <@&980494327371399218> \n <@&980494296320999424> **__ `, files: [line] });
       //
       i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
       
@@ -414,7 +418,7 @@ client.on("messageCreate", async message => {
 //
       dbb.add(`code8wat_${message.guild.id}`, 1)
       user.setNickname(`${idps4} ( S-${count || 0} )`);
-      gwat5a9h.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : S-${count || 0} \n قطاعه : <@&980494318580162590> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+      gwat5a9h.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : S-${count || 0} \n قطاعه : <@&980494318580162590> \n <@&980494296320999424> **__ `, files: [line] });
       //
       i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
       
@@ -428,9 +432,11 @@ m.delete();
     }
     }
     })
+  }
 }});
 
 client.on("messageCreate", async message => {
+  if (message.guild.id == '980493720233316372') {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"ترقية")) {
  let member = message.mentions.members.first();
@@ -1199,9 +1205,11 @@ if (!message.member.roles.cache.has('980494296320999424'))
     }
     }
     })
+  }
 }});
 
 client.on("messageCreate", async message => {
+  if (message.guild.id == '980493720233316372') {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"فصل")) {
  let member = message.mentions.members.first();
@@ -1389,6 +1397,7 @@ client.on("messageCreate", async message => {
     dbf9l.delete(`reason_${user.id}`)
     }
       }})
+  }
   }});
 
 client.on("guildMemberAdd" , member => { 
@@ -1402,6 +1411,7 @@ member.roles.add(mfsol)
 });
 
 client.on("messageCreate", async message => {
+  if (message.guild.id == '980493720233316372') {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"استقالة")) {
  let member = message.mentions.members.first();
@@ -1499,6 +1509,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: [line] });
+  }
   }});   
  
 client.on('messageCreate', message => {
@@ -1510,6 +1521,8 @@ client.destroy()
 }); 
 
 client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  if (message.guild.id == '980493720233316372') {
   if (message.content.startsWith(prefix+'هير')) {
               if (message.author.bot) return
     setTimeout(() => message.delete(), 5000);
@@ -1517,16 +1530,19 @@ if (!message.member.permissions.has('ADMINISTRATOR'))
         return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' })
     message.channel.send({ content: ' __** @here **__ ' })
   }
+  }
 });
 
 client.on('messageCreate', message => {
-            if (message.author.bot) return
+if (message.author.bot) return;
+  if (message.guild.id == '980493720233316372') {
   if (message.content.startsWith(prefix+'افري')) {
     setTimeout(() => message.delete(), 5000);
 if (!message.member.permissions.has('ADMINISTRATOR'))
         return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' })
     message.channel.send({ content: ' __** @everyone **__ ' })
   //  message.delete();
+  }
   }
 });
   
