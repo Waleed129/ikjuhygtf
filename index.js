@@ -288,7 +288,6 @@ client.on("messageCreate", async message => {
      let user = message.mentions.members.first();
     //
       if (!message.member.permissions.has('ADMINISTRATOR'))
-        //
         if (!message.member.roles.cache.has('980494296320999424'))
           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
@@ -1768,6 +1767,8 @@ message.channel.send({ files: [line] });
 }}); 
 
 client.on("messageCreate" , message => {
+if (message.author.bot) return;
+if (message.guild.id == '980493720233316372') {
 if (message.content.toLowerCase().startsWith(prefix+"say".toLowerCase())) {
 setTimeout(() => message.delete(), 5000)
   //
@@ -1784,6 +1785,7 @@ let embed = new Discord.MessageEmbed()
 //
 message.channel.send({ embeds: [embed] });
 message.delete();
+}
 }
 }
 });
@@ -1976,7 +1978,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
 if (message.content === "خط"||message.content === "لاين"|| message.content === "line" ) {
-//
 if (message.guild.id == '980493720233316372') {
 if (!message.member.permissions.has('ADMINISTRATOR'))
 if (!message.member.roles.cache.has('980494295444361216'))
@@ -2044,6 +2045,7 @@ client.on('messageCreate', message => {
 });
 
 client.on("messageCreate", async message => {
+  if (message.guild.id == '980493720233316372') {
   let words = ["برتكان", "discord.gg/", "معاون", "@everyone", "@here"]
   for (let s = 0; s < words.length; s++) {
     if (message.content.includes(words[s])) {
@@ -2061,6 +2063,7 @@ client.on("messageCreate", async message => {
         await message.member.send({ embeds: [embed] });
       }
     }
+  }
   }
 });
 
@@ -2202,6 +2205,7 @@ client.on("ready" , () => {
 
 client.on("messageCreate" , message => {
   if(message.author.bot) return;
+  if (message.guild.id == '980493720233316372') {
   if(message.content.startsWith(prefix+"شات-التحضير")) {
 if (message.guild.id == '980493720233316372') {
 if (!message.member.permissions.has('ADMINISTRATOR'))
@@ -2214,9 +2218,12 @@ if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `
 dbp.set(`channel1_${message.guild.id}` , channel.id)
 message.reply({ content: ` > __** تم تعيين ${channel} كـ شات التحضير **__ ` })
 }
+}
 }});
 
 client.on("messageCreate" , message => {
+    if(message.author.bot) return;
+  if (message.guild.id == '980493720233316372') {
   if(message.content == prefix+"انشاء-التحضير") {
     if (message.guild.id == '980493720233316372') {
 if (!message.member.permissions.has('ADMINISTRATOR'))
@@ -2240,6 +2247,7 @@ message.delete();
     message.delete()
     message.channel.send({ embeds: [embed], components:[row] })
 }
+  }
 }});
 
 client.on("interactionCreate" , async interaction => {
@@ -2368,6 +2376,7 @@ message.channel.send({ content: ` __** الأمر خاص بالعساكر ! **__
 
 client.on("messageCreate", async message => {
   if(message.author.bot) return;
+    if (message.guild.id == '980493720233316372') {
   let user = message.mentions.users.first() || message.author;
   if(message.content.startsWith(prefix+"نقاطي")) {
     //
@@ -2380,7 +2389,8 @@ client.on("messageCreate", async message => {
   let countstaff = dbb.get(`pointsstaff_${user.id}`);
   message.reply({ content: ` __** عدد نقاط الإداري <@${user.id}>
   
-  هيا : "${countstaff || 0}" **__ ` })
+  هيا : "${countstaff || 0}" **__ ` });
+  }
   }});
   
   client.on("messageCreate", (message) => {
@@ -2483,17 +2493,20 @@ const collector = message.channel.createMessageComponentCollector({ componentTyp
 
     client.on("messageCreate" , message => {
       if(message.author.bot) return;
+        if (message.guild.id == '980493720233316372') {
       if(message.content.startsWith(prefix+"لوق-التكت")) {
         if(!message.member.permissions.has("ADMINISTRATOR")) return;
         let channel = message.mentions.channels.first()
-        if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `} )
+        if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ ` });
         dbt.set(`logtkt_${message.guild.id}` , channel.id)
-        message.reply({ content: ` > __** تم تعيين ${channel} كـ لوق تفعيل **__ ` })
+        message.reply({ content: ` > __** تم تعيين ${channel} كـ لوق تفعيل **__ ` });
       }
+        }
     });
 
 client.on('messageCreate', async message => {
   if(message.author.bot) return;
+    if (message.guild.id == '980493720233316372') {
   if(message.content === prefix+'انشاء-التكت') {
     if(!message.member.permissions.has('ADMINSTRATOR')) return;
     let row = new Discord.MessageActionRow()
@@ -2525,6 +2538,7 @@ let embed = new Discord.MessageEmbed()
 //.setFooter({ name:`${message.guild.name}`, iconURL:`${message.guild.iconURL()}`})
 await message.channel.send({ embeds: [ embed ], components: [ row ] });
 message.delete();
+  }
 }});
       
             client.on("interactionCreate" , interaction => {
@@ -3038,6 +3052,7 @@ c.setName(`ticket-${ticket.count}`)
 
   client.on("messageCreate", async message => {
     if(message.author.bot) return;
+if (message.guild.id == '980493720233316372') {
 if (message.content.toLowerCase().startsWith(prefix+"remove".toLowerCase()) || message.content.toLowerCase().startsWith("remove".toLowerCase()) || message.content.toLowerCase().startsWith("$remove".toLowerCase()) 
 || message.content.toLowerCase().startsWith(prefix+"طرد".toLowerCase()) ||  message.content.toLowerCase().startsWith("طرد".toLowerCase())) {
       if (!message.member.permissions.has('ADMINISTRATOR'))
@@ -3090,10 +3105,12 @@ let embed2 = new Discord.MessageEmbed()
 )
   log.send({ embeds: [embed2] });
 }
+}
     });
 
     client.on("messageCreate", async message => {
       if(message.author.bot) return;
+        if (message.guild.id == '980493720233316372') {
 if (message.content.toLowerCase().startsWith(prefix+"add".toLowerCase()) || message.content.toLowerCase().startsWith("add".toLowerCase()) || message.content.toLowerCase().startsWith("add".toLowerCase()) 
 || message.content.toLowerCase().startsWith(prefix+"اضافة".toLowerCase()) ||  message.content.toLowerCase().startsWith("اضافة".toLowerCase())) {
 if (!message.member.permissions.has('ADMINISTRATOR'))
@@ -3146,10 +3163,12 @@ let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${
   )
     log.send({ embeds: [embed2] });
   }
+        }
       });
 
       client.on("messageCreate", async message => {
         if(message.author.bot) return;
+          if (message.guild.id == '980493720233316372') {
 if (message.content.toLowerCase().startsWith(prefix+"close".toLowerCase()) || message.content.toLowerCase().startsWith("close".toLowerCase()) || message.content.toLowerCase().startsWith("close".toLowerCase()) 
 || message.content.toLowerCase().startsWith(prefix+"اقفال".toLowerCase()) ||  message.content.toLowerCase().startsWith("اقفال".toLowerCase())) {
         if (!message.member.permissions.has('ADMINISTRATOR'))
@@ -3184,10 +3203,12 @@ let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${
 و إن كنت تريد الإلغاء قم بالضغط على "لا" **__ `)
 message.channel.send({ embeds:[embed3], components:[row3] });
           }
+          }
         });
 
 client.on("messageCreate", interaction => {
 if(interaction.author.bot) return;
+if (interaction.guild.id == '980493720233316372') {
 if (interaction.content.toLowerCase().startsWith(prefix+"delete".toLowerCase()) || interaction.content.toLowerCase().startsWith("delete".toLowerCase()) || interaction.content.toLowerCase().startsWith("$delete".toLowerCase()) 
 || interaction.content.toLowerCase().startsWith(prefix+"حذف".toLowerCase()) || interaction.content.toLowerCase().startsWith("حذف".toLowerCase())) {
   if (!interaction.member.permissions.has('ADMINISTRATOR'))
@@ -3235,7 +3256,8 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     }
 //     await dbt.delete(`ticket_${interaction.ch.id}`)
     },4000)
-                                  )
+)
+}
 }});
 
 client.on("messageCreate", message => {
@@ -3284,7 +3306,7 @@ let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${
            // { name: '__** عدد اعضاء سيرفراتي :**__', value: `__**${server.memberCount}**__`},
             { name: '__**بنقي :**__ ', value: `__**${client.ws.ping}**__`},
             { name: '__**متصل من :**__ ', value: `__**${duration}**__`},
-            { name: '__**المطور الخاص بي :**__ ', value: `__**<@${owner}>**__`},
+            { name: '__**المطور الخاص بي :**__ ', value: `__**<@!497796195104718888>**__`},
             { name: '__**إذا حاب تعرف أكثر عني :**__ ', value: `__**${prefix}توضيح**__`},
           )
           .setColor("#32496b")
@@ -3871,6 +3893,7 @@ const originalAuthor = interaction.user;
   done = "لم يتم التعرف على هوية المطلوب بعد"
   } else if (alm6lob == alm6lob) {
 if (alm6lob.user.id === interaction.user.id) return interaction.editReply({ content: ` __** لا يمكنك وضع نفسك مطلوب ! **__ `,ephemeral:true });
+if (alm6lob.user.roles.cache.has('1030773248239095889')) return interaction.editReply({ content: ' __** لا يمكنك وضع العساكر مطلوبين ! **__ ' });
   done = `${alm6lob.id}`
   dbm.add(`3ddthmh_${done}`,1)
  }; 
@@ -3916,7 +3939,7 @@ new Discord.MessageButton().setLabel(`حذف المطلوب`).setEmoji("❌").se
 );
   //
 await interaction.editReply({ content: ` __** تم وضعه مطلوب , نشكرك ${interaction.user} على حرصك لحماية الوطن . **__ ` });
-await interaction.channel.send({ content: ` __** ${wzartalda5leuh},${msaaol8bolalwzarh},${msaaol8bolal39abh}  **__ `, embeds:[embed], components:[t788] }).then(m=> {
+await channelFBI.send({ content: ` __** ${wzartalda5leuh},${msaaol8bolalwzarh},${msaaol8bolal39abh}  **__ `, embeds:[embed], components:[t788] }).then(m=> {
 dbm.set(`al3skre_${m.id}`,originalAuthor.id)
 dbm.set(`alm6lob_${m.id}`,done)
 dbm.set(`alm6lobimg_${done}`,image)
