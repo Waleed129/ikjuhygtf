@@ -4021,7 +4021,6 @@ interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
       return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); 
         if (message.channel.id !== "1088232815289716757") 
 return message.reply({ content: ` __** فقط في : <#1088232815289716757> **__ ` }).then(message => setTimeout(() => message.delete(), 5000));
-message.delete()
 // 
       if(!user){   
       user = message.author;
