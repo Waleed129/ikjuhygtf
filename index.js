@@ -1825,9 +1825,8 @@ if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ con
           client.on("interactionCreate" , async interaction => {
             if(interaction.isButton()) {
               if(interaction.customId == "setid") {
-await interaction.deferReply({ephemeral:true});
 let id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
-if(dbb.has(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)) return interaction.editReply({ content: ` __** إيديك مسجل بالفعل و هو : ${id} ... **__ ` });
+if(dbb.has(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)) return interaction.reply({ content: ` __** إيديك مسجل بالفعل و هو : ${id} ... **__ `,ephemeral:true });
 //
               const modalsetid = new ModalBuilder()
                 .setCustomId('modalsetid')
