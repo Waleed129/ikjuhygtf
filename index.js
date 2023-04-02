@@ -1799,6 +1799,66 @@ message.channel.send({ embeds: [embed] });
 }
 }); 
 
+
+client.on("messageCreate", async message => {
+if(message.author.bot) return;
+if(message.content.startsWith(prefix+"setid")) {
+if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+  //
+            let row = new Discord.MessageActionRow()
+            .addComponents(
+            new Discord.MessageButton()
+          .setLabel(`اضغط هنا`)
+          .setEmoji("✅")
+          .setStyle("SUCCESS")
+          .setCustomId("setid")
+          )
+          //
+          let embed = new Discord.MessageEmbed()
+          .setDescription(`__** قم بالضغط هنا و قم بتسجيل إيديك ! **__`)
+          .setColor(`#32496b`)
+          //
+            message.channel.send({ embeds:[embed],components:[row] });
+            message.delete();
+          }});
+
+          client.on("interactionCreate" , async interaction => {
+            if(interaction.isButton()) {
+              if(interaction.customId == "setid") {
+await interaction.deferReply({ephemeral:true});
+let id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+if(dbb.has(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)) return interaction.editReply({ content: ` __** إيديك مسجل بالفعل و هو : ${id} ... **__ ` });
+//
+              const modalsetid = new ModalBuilder()
+                .setCustomId('modalsetid')
+                .setTitle('التسجيل العسكري :')
+                      .addComponents(
+               new ModalField()
+                .setCustomId('setidd')
+                .setLabel("أيديك ؟")
+                      .setRequired(true)
+                      .setPlaceholder(" ... يرجى كتابة ايديك هنا ")
+                      .setMin(4)
+                      .setMax(100)
+                .setStyle('SHORT')
+                      )
+              await client.modal.open(interaction , modalsetid);
+              }
+            }
+          });
+
+client.on('modalSubmitInteraction', async interaction => {
+if(interaction.customId == "modalsetid") {
+await interaction.deferReply({ephemeral:true});
+//
+const setidd = interaction.fields.getTextInputValue("setidd")
+interaction.editReply({ content: ` __** جاري التسجيل يرجى إنتظار ثواني معدودة ... **__ ` });
+//
+dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`, setidd)
+interaction.editReply({ content: ` __** تم تسجيل أيديك و أيديك هو : ${setidd} ... **__ ` });
+}
+});
+
 // رد
 
   client.on('messageCreate', message => {
