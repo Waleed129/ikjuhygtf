@@ -3808,7 +3808,6 @@ sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . 
           dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
           dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`)
           dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
-          dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
          //
           dbb.delete(`true_${interaction.member.id}`)
           dbb.delete(`false_${interaction.member.id}`)
@@ -3863,7 +3862,6 @@ sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . 
           dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
           dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_age`)
           dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
-          dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
          //
           dbb.delete(`true_${interaction.member.id}`)
           dbb.delete(`false_${interaction.member.id}`)
