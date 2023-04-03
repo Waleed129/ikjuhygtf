@@ -712,12 +712,12 @@ if (!message.member.roles.cache.has('980494296320999424'))
         member.roles.add(gnde);
         member.roles.remove(gndeaol);
         member.roles.remove(href);
-        member.roles.remove(r8eb);
+//        member.roles.remove(r8eb);
         member.roles.remove(r8ebaol);
         member.roles.remove(mlazm);
         member.roles.remove(mlazmaol);
         member.roles.remove(h8ed);
-        member.roles.remove(lwaaa);
+//        member.roles.remove(lwaaa);
         member.roles.remove(fre8);
         member.roles.remove(fre8aol);
         //
@@ -1452,7 +1452,7 @@ client.on("messageCreate", async message => {
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
         //
-        if(!dbf9l.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** لم يتم فصل العسكري ! **__ ` , ephemeral: true });
+        if(dbf9l.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** لم يتم فصل العسكري ! **__ ` , ephemeral: true });
 //
         let ch = dbb.get(`logtf3el_${message.guild.id}`)
         let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
