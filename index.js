@@ -2394,7 +2394,6 @@ client.on("messageCreate" , message => {
   if(message.author.bot) return;
   if (message.guild.id == '980493720233316372') {
   if(message.content.startsWith(prefix+"شات-التحضير")) {
-if (message.guild.id == '980493720233316372') {
 if (!message.member.permissions.has('ADMINISTRATOR'))
 if (!message.member.roles.cache.has('980494295444361216'))
 return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
@@ -2405,14 +2404,12 @@ if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `
 dbp.set(`channel1_${message.guild.id}` , channel.id)
 message.reply({ content: ` > __** تم تعيين ${channel} كـ شات التحضير **__ ` })
 }
-}
 }});
 
 client.on("messageCreate" , message => {
     if(message.author.bot) return;
   if (message.guild.id == '980493720233316372') {
   if(message.content == prefix+"انشاء-التحضير") {
-    if (message.guild.id == '980493720233316372') {
 if (!message.member.permissions.has('ADMINISTRATOR'))
 if (!message.member.roles.cache.has('980494295444361216'))
 return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
@@ -2434,7 +2431,6 @@ message.delete();
     message.delete()
     message.channel.send({ embeds: [embed], components:[row] })
 }
-  }
 }});
 
 client.on("interactionCreate" , async interaction => {
