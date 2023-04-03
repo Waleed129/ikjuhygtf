@@ -1,5 +1,5 @@
 process.on("unhandledRejection", error => {
-  return console.log(`error:${error}`)
+  return console.log(error)
 }); // يمنع ايرور عن اطفاء البروجكت  
 //
 require("events").EventEmitter.defaultMaxListeners = 9999999999999999999999999999; // ايفنت
@@ -37,7 +37,7 @@ const moment = require("moment")
 require("moment-duration-format");
 //
 const Database = require("st.db")
-// const db = new Database({path: "database.json"})
+const db = new Database({path: "codes.json"})
 const dbb = new Database({path: "tf3el.json"})
 const dbp = new Database({path: "points.json"})
 const dbt = new Database({path: "ticket.json"})
@@ -124,9 +124,98 @@ const rest = new REST({ version: '9' }).setToken(tokenbot);
           } catch (error) {
               console.error(error);
           }
-      })(); 
-});
-
+      })();
+  //
+       let guild = `980493720233316372`
+        if(!db.has(`codesamn3am9ba6_${guild}`)) {
+        let codes = [
+"11",
+"12",
+"13",
+"14",
+"15",
+"16",
+"17",
+"18",
+"19",
+"20",
+"21",
+"22",
+"23",
+"24",
+"25",
+"26",
+"27",
+"28",
+"29",
+"30",
+"31",
+"32",
+"33",
+"34",
+"35",
+"36",
+"37",
+"38",
+"39",
+"40",
+"41",
+"42",
+"43",
+"44",
+"45",
+"46",
+"47",
+"48",
+"49",
+"50",
+"51",
+"52",
+"53",
+"54",
+"55",
+"56",
+"57",
+"58",
+"59",
+"60",
+"61",
+"62",
+"63",
+"64",
+"65",
+"66",
+"67",
+"68",
+"69",
+"70",
+"71",
+"72",
+"73",
+"74",
+"75",
+"76",
+"77",
+"78",
+"79",
+"80",
+"81",
+"82",
+"83",
+"84",
+"85",
+"86",
+"87",
+"88",
+"89",
+"90"
+        ]
+        for(let i = 0;i < codes.length;i++) {
+              db.push(`codesamn3am9ba6_${guild}` , codes[i])
+        }
+            }
+            });
+//
  client.on("messageCreate", message => {
   if (message.content.startsWith(prefix+'إسم-البوت')) {
     if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت اونر البوت لا تحاول هعهعهعهع **__ ' })
@@ -2125,6 +2214,45 @@ client.on("messageCreate", async message => {
   }
   }
 });
+
+/* client.on("messageCreate",async message => {
+            if(message.author.bot) return;
+            if(message.content.startsWith(prefix+'zz')) {
+              //
+              const role = message.guild.roles.cache.find(role => role.name === "الشرطة・العسكرية | 👮🏻‍♂️");
+              if (!role) return message.reply({ content: ` __** لم أستطع العثور على الرتبه الأولى ! **__ ` });
+              //
+              const memberrolesize = message.guild.members.cache.filter(member => member.roles.cache.has(role.id));
+              console.log(`The role : ${role.name} has a ${memberrolesize.size} member ! `);
+            //
+            const roles = ["948325064741359626"]
+            const role2 = message.guild.roles.cache.find(role => role.name.toLowerCase() === "ملازم | ✯");
+            if (!role2) return message.reply({ content: ` __** لم أستطع العثور على الرتبه الثانية ! **__ ` });
+            //
+            const memberrolesize2 = message.guild.members.cache.filter(member => member.roles.cache.has(role2.id));
+            console.log(`The role : ${role2.name} has a ${memberrolesize2.size} member ! `);
+            //
+            if (message.member.roles.cache.has(role.id)) {
+              memberrolesize.forEach(member => {
+              if (member.roles.cache.has(role2.id)) {
+            let numbers = db.get(`codesamn3am9ba6_${message.guild.id}`);
+            //
+            const number = numbers[Math.floor(Math.random() * numbers.length)];
+            numbers = numbers.filter(n => n !== number);
+        //
+             member.setNickname(number).catch(() => {
+              message.channel.send({ content: ` __** لم إستطع تغيير إسم : <@!${member.id}> **__ ` });
+            });
+          console.log(`${member.user.tag} : ${number}`)
+            //
+             db.delete(`codesamn3am9ba6_${message.guild.id}`);
+             db.set(`codesamn3am9ba6_${message.guild.id}`, numbers);
+             console.log(`---------------------------------------------------------------------------------------------`)
+          }
+        })
+        //
+        }
+          }}); */
 
 client.on("ready" , () => {
   let guild = `980493720233316372`
