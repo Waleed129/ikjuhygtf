@@ -4323,12 +4323,10 @@ if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ con
             const memberJoinedDate = member.joinedAt;
             return memberJoinedDate > oneWeekAgo;
           });
-          let embed1 = new Discord.MessageEmbed()
-            .setTitle(`أخر من دخل خلال الـ 7 أيام الماضيه يقدروا بـ : [${membersJoinedLast7Days.size}] ...`)
-            .setDescription(`${membersJoinedLast7Days.map((user) => {
-            return ` **<@!${user.user.id}> ** `
-          }).join('\n\n')}`)
-                    interaction.update({embeds: [embed1]})
+          interaction.update({ content: ` __** أخر من دخل خلال الـ 7 الأيام الماضيه يقدروا بـ : [${membersJoinedLast7Days.size}] ... \n 
+${membersJoinedLast7Days.map((user) => {
+  return ` **( <@!${user.user.id}> ) ** `
+}).join('\n\n')}**__ `, embeds:[]})
                   } else if(interaction.values[0] == '30days'){
           const oneMonthAgo = new Date();
           oneMonthAgo.setDate(oneMonthAgo.getDate() - 30);
@@ -4337,13 +4335,10 @@ if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ con
             const memberJoinedDate = member.joinedAt;
             return memberJoinedDate > oneMonthAgo;
           });
-          let embed1 = new Discord.MessageEmbed()
-          .setTitle(`أخر من دخل خلال الـ 30 يوم الماضيه يقدروا بـ : [${membersJoinedLast30Days.size}] ...`)
-          .setDescription(`${membersJoinedLast30Days.map((user) => {
-            return ` **<@!${user.user.id}> ** `
-          }).join('\n\n')}`)
-                    interaction.update({embeds: [embed1]})
-                    
+interaction.update({ content: ` __** أخر من دخل خلال الـ 30 يوم الماضيه يقدروا بـ : [${membersJoinedLast30Days.size}] ... \n 
+${membersJoinedLast30Days.map((user) => {
+  return ` **<@!${user.user.id}> ** `
+}).join('\n\n')}**__ `, embeds:[]})
                   }
                 })
               })
