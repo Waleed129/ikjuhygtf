@@ -4190,6 +4190,7 @@ var done
 dbm.set(`3ddthmh_${interaction.message.id}`,done)
 //
 interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
+interaction.messge.delete();
               }
     });
 
@@ -4281,5 +4282,72 @@ if(user.bot) return message.reply({ content: " __** لا يمكن فحص الب�
 message.edit({ content:` __** اذا لم تتطابق الصورة مع من تراه أمامك : \n  فقم بوضع سجل جديد له (m6lob/) . **__ `,embeds:[embed]  });
       })
         }}); 
+
+client.on("messageCreate", async message => {
+if(message.author.bot) return;
+if(message.content.startsWith(prefix+"الدخول")) {
+if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+            //
+              const guild = client.guilds.cache.get(`${message.guild.id}`);
+          let row = new Discord.MessageActionRow()
+                .addComponents(
+                  new Discord.MessageSelectMenu()
+                    .setCustomId('select')
+                    .setPlaceholder('Selected')
+                    .addOptions([
+                      {
+                        label: 'اخر 7 ايام',
+                        description: 'لـ رؤية أخر الأشخاص الذين دخلوا السيرفر خلال أخر 7 ايام',
+                        value: '7days'
+                      }, {
+                        label: 'اخر 30 يوم',
+                        description: 'لـ رؤية أخر الأسخاص الذين دخلوا السيرفر خلال أخر 30 يوم',
+                        value: '30days'
+                      }
+                    ]),
+                )
+              
+          const members = await guild.members.fetch();
+          
+              let embed = new Discord.MessageEmbed()
+              .setDescription(` __** ${message.author} إختر إي نوع تريد عرضه ... **__ `)
+              message.reply({embeds: [embed],components: [row]}).then((msg) => {
+                let filter = b => b.user.id === message.author.id;
+                let collector = msg.createMessageComponentCollector({ filter: filter, componentType: 'SELECT_MENU' });
+                collector.on('collect', async interaction => {
+                  if (interaction.values[0] == '7days') {
+          const oneWeekAgo = new Date();
+          oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+          
+          const membersJoinedLast7Days = members.filter(member => {
+            const memberJoinedDate = member.joinedAt;
+            return memberJoinedDate > oneWeekAgo;
+          });
+          let embed1 = new Discord.MessageEmbed()
+            .setTitle(`أخر من دخل خلال الـ 7 أيام الماضيه يقدروا بـ : [${membersJoinedLast7Days.size}] ...`)
+            .setDescription(`${membersJoinedLast7Days.map((user) => {
+            return ` **<@!${user.user.id}> ** `
+          }).join('\n\n')}`)
+                    interaction.update({embeds: [embed1]})
+                  } else if(interaction.values[0] == '30days'){
+          const oneMonthAgo = new Date();
+          oneMonthAgo.setDate(oneMonthAgo.getDate() - 30);
+          
+          const membersJoinedLast30Days = members.filter(member => {
+            const memberJoinedDate = member.joinedAt;
+            return memberJoinedDate > oneMonthAgo;
+          });
+          let embed1 = new Discord.MessageEmbed()
+          .setTitle(`أخر من دخل خلال الـ 30 يوم الماضيه يقدروا بـ : [${membersJoinedLast30Days.size}] ...`)
+          .setDescription(`${membersJoinedLast30Days.map((user) => {
+            return ` **<@!${user.user.id}> ** `
+          }).join('\n\n')}`)
+                    interaction.update({embeds: [embed1]})
+                    
+                  }
+                })
+              })
+              }
+          });
 
 client.login(tokenbot).catch(() => console.log(`[ERROR]: Invalid Token!`));
