@@ -30,7 +30,6 @@ const embed = new Discord.MessageEmbed();
 const discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const ms = require("ms");
-const { joinVoiceChannel } = require('@discordjs/voice');
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const moment = require("moment")
@@ -79,12 +78,13 @@ let line = new Discord.MessageAttachment("https://media.discordapp.net/attachmen
 // خط
 const prefix = "-"; // البرفكس
 //
+const { joinVoiceChannel, createAudioPlayer, createAudioResource, StreamType, VoiceResponse } = require('@discordjs/voice');
 client.on("ready", () => {
   console.log(`dn on a : ${client.user.tag}`);
   client.user.setActivity("لـ خدمة FBI", { type: "WATCHING" });
   client.user.setStatus("idle");
   setInterval(async () => {
-    client.channels.fetch("980494400926924860")
+    client.channels.fetch("1056903162897899551")
       .then((channel) => {
         const VoiceConnection = joinVoiceChannel({
           channelId: channel.id,
@@ -4282,5 +4282,40 @@ if(user.bot) return message.reply({ content: " __** لا يمكن فحص الب�
 message.edit({ content:` __** اذا لم تتطابق الصورة مع من تراه أمامك : \n  فقم بوضع سجل جديد له (m6lob/) . **__ `,embeds:[embed]  });
       })
         }}); 
+
+          const { createReadStream } = require('fs');
+          const { opus } = require('prism-media');
+          
+          client.on('voiceStateUpdate', async (oldState, newState) => {
+            if (
+              newState.member.user.bot ||
+              !newState.channelId ||
+              newState.channelId === oldState.channelId
+            ) return;
+          
+            const channel = client.channels.cache.get('1056903162897899551'); // ايدي روم الصوت الذي يرحب به البوت
+            if (!channel) return;
+          
+            const connection = joinVoiceChannel({
+              channelId: channel.id,
+              guildId: channel.guild.id,
+              adapterCreator: channel.guild.voiceAdapterCreator,
+            });
+          
+            try {
+              const audioPlayer = createAudioPlayer();
+              const audioResource = createAudioResource(createReadStream('./Hi.mp3'))
+              audioResource.pipe(new opus.Encoder({ rate: 48000, channels: 2, frameSize: 960 }));
+              audioPlayer.play(audioResource);
+              connection.subscribe(audioPlayer);
+          
+              audioPlayer.on('stateChange', (oldState, newState) => {
+                if (newState.status === 'idle') connection.destroy();
+              });
+            } catch (error) {
+              connection.destroy();
+              console.error(error);
+            }
+          });
 
 client.login(tokenbot).catch(() => console.log(`[ERROR]: Invalid Token!`));
