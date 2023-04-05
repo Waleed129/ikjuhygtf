@@ -84,7 +84,7 @@ client.on("ready", () => {
   client.user.setActivity("لـ خدمة FBI", { type: "WATCHING" });
   client.user.setStatus("idle");
   setInterval(async () => {
-    client.channels.fetch("1056903162897899551")
+    client.channels.fetch("980494400926924860")
       .then((channel) => {
         const VoiceConnection = joinVoiceChannel({
           channelId: channel.id,
@@ -4282,17 +4282,5 @@ if(user.bot) return message.reply({ content: " __** لا يمكن فحص الب�
 message.edit({ content:` __** اذا لم تتطابق الصورة مع من تراه أمامك : \n  فقم بوضع سجل جديد له (m6lob/) . **__ `,embeds:[embed]  });
       })
         }}); 
-
-          const { createReadStream } = require('fs');
-          const { opus } = require('prism-media');
-client.on('voiceStateUpdate', async (oldState, newState) => {
-  const connection = await client.channels.cache.get(newState.channelId).join();
-  if (newState.member.user.bot) return;
-  if (oldState.member !== null && oldState.channelId !== null) return;
-  const dispatcher = connection.play('./Hi.mp3', { volume: 0.5 });
-  dispatcher.on('finish', () => {
-    connection.disconnect();
-  });
-});
 
 client.login(tokenbot).catch(() => console.log(`[ERROR]: Invalid Token!`));
