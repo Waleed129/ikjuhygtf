@@ -4338,7 +4338,8 @@ ${membersJoinedLast7Days.map((user) => {
 interaction.update({ content: ` __** أخر من دخل خلال الـ 30 يوم الماضيه يقدروا بـ : [${membersJoinedLast30Days.size}] ... \n 
 ${membersJoinedLast30Days.map((user) => {
   return ` **<@!${user.user.id}> ** `
-}).join('\n\n')}**__ `, embeds:[]})
+})
+.join('\n\n')}**__ `, embeds:[]})
                   }
                 })
               })
