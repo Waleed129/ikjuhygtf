@@ -4285,37 +4285,14 @@ message.edit({ content:` __** اذا لم تتطابق الصورة مع من ت
 
           const { createReadStream } = require('fs');
           const { opus } = require('prism-media');
-          
-          client.on('voiceStateUpdate', async (oldState, newState) => {
-            if (
-              newState.member.user.bot ||
-              !newState.channelId ||
-              newState.channelId === oldState.channelId
-            ) return;
-          
-            const channel = client.channels.cache.get('1056903162897899551'); // ايدي روم الصوت الذي يرحب به البوت
-            if (!channel) return;
-          
-            const connection = joinVoiceChannel({
-              channelId: channel.id,
-              guildId: channel.guild.id,
-              adapterCreator: channel.guild.voiceAdapterCreator,
-            });
-          
-            try {
-              const audioPlayer = createAudioPlayer();
-              const audioResource = createAudioResource(createReadStream('./Hi.mp3'))
-              audioResource.pipe(new opus.Encoder({ rate: 48000, channels: 2, frameSize: 960 }));
-              audioPlayer.play(audioResource);
-              connection.subscribe(audioPlayer);
-          
-              audioPlayer.on('stateChange', (oldState, newState) => {
-                if (newState.status === 'idle') connection.destroy();
-              });
-            } catch (error) {
-              connection.destroy();
-              console.error(error);
-            }
-          });
+client.on('voiceStateUpdate', async (oldState, newState) => {
+  const connection = await client.channels.cache.get(newState.channelId).join();
+  if (newState.member.user.bot) return;
+  if (oldState.member !== null && oldState.channelId !== null) return;
+  const dispatcher = connection.play('./Hi.mp3', { volume: 0.5 });
+  dispatcher.on('finish', () => {
+    connection.disconnect();
+  });
+});
 
 client.login(tokenbot).catch(() => console.log(`[ERROR]: Invalid Token!`));
