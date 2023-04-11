@@ -2306,7 +2306,9 @@ let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
 if(interaction.member.roles.cache.some(r=> r.id == da7leh)) return interaction.reply({ content: ` __** يجب ان تكون عسكري لكي تكون إداري في ${interaction.guild.name} ! **__ `, ephemeral:true });
 if(interaction.member.roles.cache.some(r=> r.id == adarh)) return interaction.reply({ content: ` __** أنت إداري مسبقاَ في ${interaction.guild.name} ! **__ `, ephemeral:true });
 if(interaction.member.roles.cache.some(r=> r.id == adarh2)) return interaction.reply({ content: ` __** أنت إداري مسبقاَ في ${interaction.guild.name} ! **__ `, ephemeral:true });
-if(cooldown.has(interaction.member.id)) return interaction.reply({ content: ` __** اهده حبيبي انتظر ساعة بعدها تعال **__ ` , ephemeral:true})
+if(cooldown.has(interaction.member.id)) return interaction.reply({ content: ` __** اهده حبيبي انتظر ساعة بعدها تعال **__ `, ephemeral:true });
+let user = db.get(`userm_${interaction.member.id}`)  
+if(user) return interaction.reply({ content: ` __** لقد قمت بالتقديم مسبقاً ! **__ `, ephemeral:true });
 //
             const modalt9demadare = new ModalBuilder()
               .setCustomId('modalt9demadare')
@@ -2418,8 +2420,8 @@ client.on("interactionCreate" , async interaction => {
         .setColor("RANDOM")
         .setTimestamp();
         //
-        let adarh = interaction.guild.roles.cache.get('1073601487181205554');
-        let adarh2 = interaction.guild.roles.cache.get('948329181031317555');
+       let adarh = interaction.guild.roles.cache.get('980494295444361216');
+let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
    member.roles.add(adarh) 
    member.roles.add(adarh2); 
    member.setNickname(`!! ✯ 𝗙𝗣・˹ ${member.displayName} ˼`).catch(() => {
@@ -2455,7 +2457,7 @@ client.on("interactionCreate" , async interaction => {
               .setTimestamp();
               //
               m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم رفضه من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[embed],components:[] });
-              member.send(`**لقد تم رفض تقديمك ! 🥳 **`)
+              member.send(`**لقد تم رفض تقديمك ! **`)
               db.delete(`userm_${interaction.message.id}`)
               db.delete(`namet9demadare_${interaction.message.id}`)
               db.delete(`5brat9demadaret_${interaction.message.id}`)
@@ -2465,6 +2467,7 @@ client.on("interactionCreate" , async interaction => {
                   }
                   //
                   if(interaction.customId == "a3la9t9demadare") {
+if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral: true });
                     let embed = new Discord.MessageEmbed()
             .setAuthor({name:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
             .setTitle(`التقديم الإداري`)
@@ -2481,6 +2484,7 @@ client.on("interactionCreate" , async interaction => {
                         }
                         //
                         if(interaction.customId == "ft7t9demadare") {
+if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral: true });
                           if(!db.has(`channelalt9dem_${interaction.guild.id}`)) return interaction.reply({ content: ` __** تواصل مع : <@${owner}> **__ `, ephemeral:true });
                           let embed = new Discord.MessageEmbed()
                           .setAuthor({name:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
@@ -2500,7 +2504,7 @@ client.on("interactionCreate" , async interaction => {
                            .setStyle("DANGER")
                           )
                   interaction.message.edit({ embeds: [embed], components:[row] });
-                  interaction.channel.send({ content: ` __** @everyone **__ ` });
+                //  interaction.channel.send({ content: ` __** @everyone **__ ` });
                               }
           }
         });
@@ -4441,7 +4445,7 @@ var done
 dbm.set(`3ddthmh_${interaction.message.id}`,done)
 //
 interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
-interaction.message.delete();
+interaction.message.delete()
               }
     });
 
