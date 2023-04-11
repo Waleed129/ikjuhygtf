@@ -2254,6 +2254,257 @@ client.on("messageCreate", async message => {
         }
           }}); */
 
+
+          client.on("messageCreate" , message => {
+            if(message.author.bot) return;
+            if (message.guild.id == '980493720233316372') {
+            if(message.content.startsWith(prefix+"شات-التقديم")) {
+if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+            //
+          let channel = message.mentions.channels.first()
+          if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `} )
+          db.set(`channelalt9dem_${message.guild.id}` , channel.id)
+          message.reply({ content: ` > __** تم تعيين ${channel} كـ شات التقديمات الإدارية **__ ` })
+          }
+          }});
+
+          client.on("messageCreate" , message => {
+            if(message.author.bot) return;
+          if (message.guild.id == '980493720233316372') {
+          if(message.content == prefix+"انشاء-التقديم") {
+if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+          //
+           if(!db.has(`channelalt9dem_${message.guild.id}`)) return message.reply({ content: ` __** تواصل مع : <@${owner}> **__ ` });
+            let embed = new Discord.MessageEmbed()
+            .setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
+            .setTitle(`التقديم الإداري`)
+            .setDescription(` __** لـ التقديم الإداري يرجى الضغط على 👮🏻 . **__ `)
+            .setColor("GREEN")
+            let row = new Discord.MessageActionRow().addComponents(
+              new Discord.MessageButton()
+              .setLabel(`التقديم الإداري في : ${message.guild.name} ...`)
+              .setEmoji('👮🏻')
+              .setCustomId("t9demadare")
+              .setStyle("SUCCESS"),
+              new Discord.MessageButton()
+             .setLabel(`إغلاق التقديم الإداري في : ${message.guild.name} ...`)
+             .setEmoji('🚫')
+             .setCustomId("a3la9t9demadare")
+             .setStyle("DANGER")
+            )
+            message.delete();
+            message.channel.send({ embeds: [embed], components:[row] })
+        }
+        }});
+        
+        client.on("interactionCreate" , async interaction => {
+          if (!interaction.isButton()) return;
+          if(interaction.customId == "t9demadare") {
+let da7leh = !interaction.guild.roles.cache.get('980494313295331328');
+let adarh = interaction.guild.roles.cache.get('980494295444361216');
+let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
+if(interaction.member.roles.cache.some(r=> r.id == da7leh)) return interaction.reply({ content: ` __** يجب ان تكون عسكري لكي تكون إداري في ${interaction.guild.name} ! **__ `, ephemeral:true });
+if(interaction.member.roles.cache.some(r=> r.id == adarh)) return interaction.reply({ content: ` __** أنت إداري مسبقاَ في ${interaction.guild.name} ! **__ `, ephemeral:true });
+if(interaction.member.roles.cache.some(r=> r.id == adarh2)) return interaction.reply({ content: ` __** أنت إداري مسبقاَ في ${interaction.guild.name} ! **__ `, ephemeral:true });
+if(cooldown.has(interaction.member.id)) return interaction.reply({ content: ` __** اهده حبيبي انتظر ساعة بعدها تعال **__ ` , ephemeral:true})
+//
+            const modalt9demadare = new ModalBuilder()
+              .setCustomId('modalt9demadare')
+              .setTitle('التقديم الإداري :')
+                    .addComponents(
+                  new ModalField()
+              .setCustomId('namet9demadare')
+              .setLabel("اسمك ؟")
+                    .setRequired(true)
+                    .setPlaceholder("يرجى كتابة إسمك هنا ... ")
+                    .setMin(3)
+                    .setMax(32)
+              .setStyle('SHORT'),
+                      
+             new ModalField()
+              .setCustomId('5bratt9demadare')
+              .setLabel("خبراتك ؟")
+                    .setRequired(true)
+                    .setPlaceholder(" ... يرجى كتابة خبراتك هنا ")
+                    .setMin(4)
+                    .setMax(100)
+              .setStyle('SHORT'),
+                      
+                  new ModalField()
+              .setCustomId('sectort9demadare')
+              .setLabel("قطاعك العسكري ؟")
+                    .setRequired(true)
+                    .setPlaceholder(" ... يرجى كتابة قطاعك العسكري هنا ( اسم القطاع ) ")
+                    .setMin(5)
+                    .setMax(32)
+                    .setStyle('SHORT'),
+            
+                    new ModalField()
+              .setCustomId('timet9demadare')
+              .setLabel("وقت تفاعلك ؟")
+                    .setRequired(true)
+                    .setPlaceholder("يرجى كتابة وقت تفاعلك ...")
+                    .setMin(4)
+                    .setMax(32)
+              .setStyle('SHORT'),
+                    )
+            await client.modal.open(interaction , modalt9demadare);
+      setTimeout(() => {
+      cooldown.delete(interaction.member.id)
+    } , 18000000);
+    }
+  });
+
+        client.on('modalSubmitInteraction', async interaction => {
+            if(interaction.customId == "modalt9demadare") {
+             let ch = db.get(`channelalt9dem_${interaction.guild.id}`)
+             let channel = interaction.guild.channels.cache.find(c => c.id == ch)
+        const name = interaction.fields.getTextInputValue("namet9demadare")
+        const hbratt9demadare = interaction.fields.getTextInputValue("5bratt9demadare")
+        const sector = interaction.fields.getTextInputValue("sectort9demadare")
+        const time = interaction.fields.getTextInputValue("timet9demadare")
+        //
+        let row = new Discord.MessageActionRow().addComponents(
+          new Discord.MessageButton()
+          .setLabel(`قبول الإداري : ${interaction.member.displayName} ...`)
+          .setEmoji('👮🏻')
+          .setCustomId("acc")
+          .setStyle("SUCCESS"),
+          new Discord.MessageButton()
+         .setLabel(`رقض الإداري : ${interaction.member.displayName} ...`)
+         .setEmoji('🚫')
+         .setCustomId("t9demadarerf8")
+         .setStyle("DANGER")
+        )
+        //
+        let embed = new Discord.MessageEmbed()
+        .setAuthor({name:`${interaction.member.displayName}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+        .setTitle(`${interaction.member.id}`)
+        .setDescription(`> __** <:emoji_20:981170142744567808> تقديم إداري جديد بواسطة : "${interaction.member}" . \n > إسم المقدم : ${name}\n > أيدي العسكري : \`${interaction.member.displayName}\` .\n > خبرات المقدم : ${hbratt9demadare} . \n > قطاع العسكري : ${sector} . \n > وقت تفاعله : ${time} . <:emoji_20:981170142744567808> **__ `)
+        .setFooter({text:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+        .setColor("RANDOM")
+        .setTimestamp();
+        //
+        interaction.reply({ content: ` __** <:emoji_20:981170142744567808> تم إرسال تقديمك بـ نجاح : ${interaction.member} <:emoji_20:981170142744567808> **__ `, ephemeral:true });
+        channel.send({ content: ` __** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${interaction.member} <:emoji_20:981170142744567808> **__ `, embeds:[embed],components:[row] }).then(m=> {
+        channel.send({ files: [line] });
+        db.set(`userm_${m.id}` , interaction.member.id)
+        db.set(`namet9demadare_${m.id}` , `${name}`)
+        db.set(`5brat9demadaret_${m.id}` , `${hbratt9demadare}`)
+        db.set(`sectort9demadare_${m.id}` , `${sector}`)
+        db.set(`timet9demadare_${m.id}` , `${time}`)
+        db.set(`message_${m.id}` , m.id)
+      })
+    }
+ });     
+
+client.on("interactionCreate" , async interaction => {
+          if(interaction.isButton()) {
+            if(interaction.customId == "acc") {
+        let name = db.get(`namet9demadare_${interaction.message.id}`)
+        let hbrath = db.get(`5brat9demadaret_${interaction.message.id}`)
+        let sectort = db.get(`sectort9demadare_${interaction.message.id}`)
+        let time = db.get(`timet9demadare_${interaction.message.id}`)
+        let m = interaction.channel.messages.cache.find(r=>r.id == db.get(`message_${interaction.message.id}`))
+        //
+                let user = db.get(`userm_${interaction.message.id}`)
+                let member = interaction.guild.members.cache.get(user)
+//
+                let embed = new Discord.MessageEmbed()
+        .setAuthor({name:`${member.displayName}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+        .setTitle(`${interaction.member.id}`)
+        .setDescription(`__** > <:emoji_20:981170142744567808> تقديم إداري جديد بواسطة : "${member}" . \n > إسم المقدم : ${name}\n > أيدي العسكري : ${interaction.member.displayName} . \n > خبرات المقدم : ${hbrath} . \n > قطاع العسكري : ${sectort} . \n > وقت تفاعله : ${time} . \n > الحالة : تم قبوله . \n تم قبوله من قبل : ${interaction.member} . <:emoji_20:981170142744567808> **__ `)
+        .setFooter({text:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+        .setColor("RANDOM")
+        .setTimestamp();
+        //
+        let adarh = interaction.guild.roles.cache.get('1073601487181205554');
+        let adarh2 = interaction.guild.roles.cache.get('948329181031317555');
+   member.roles.add(adarh) 
+   member.roles.add(adarh2); 
+   member.setNickname(`!! ✯ 𝗙𝗣・˹ ${member.displayName} ˼`).catch(() => {
+    interaction.channel.send({ content: ` __** لم إستطع تغيير إسم : <@!${member.id}> **__ ` });
+  }); 
+        //
+        m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم قبوله من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[embed],components:[] });
+        member.send({ content: ` __** يا ${member} تم قبول تقديمك الإداري في : "${interaction.guild.name}" و تم تسيلمك : "${adarh.name},${adarh2.name}" و تم وضع لك الشعار : \`"${member.displayName}"\` ... **__ ` });
+        db.delete(`userm_${interaction.message.id}`)
+        db.delete(`namet9demadare_${interaction.message.id}`)
+        db.delete(`5brat9demadaret_${interaction.message.id}`)
+        db.delete(`sectort9demadare_${interaction.message.id}`)
+        db.delete(`timet9demadare_${interaction.message.id}`)
+        db.delete(`message_${interaction.message.id}`)
+            }
+            //
+            if(interaction.customId == "t9demadarerf8") {
+              let name = db.get(`namet9demadare_${interaction.message.id}`)
+              let hbrath = db.get(`5brat9demadaret_${interaction.message.id}`)
+              let sectort = db.get(`sectort9demadare_${interaction.message.id}`)
+              let time = db.get(`timet9demadare_${interaction.message.id}`)
+              let m = interaction.channel.messages.cache.find(r=>r.id == db.get(`message_${interaction.message.id}`))
+              //
+                      let user = db.get(`userm_${interaction.message.id}`)
+                      let member = interaction.guild.members.cache.get(user)
+      //
+                      let embed = new Discord.MessageEmbed()
+              .setAuthor({name:`${member.displayName}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+              .setTitle(`${interaction.member.id}`)
+              .setDescription(`__** > <:emoji_20:981170142744567808> تقديم إداري جديد بواسطة : "${member}" . \n > إسم المقدم : ${name}\n > أيدي العسكري : ${interaction.member.displayName} . \n > خبرات المقدم : ${hbrath} . \n > قطاع العسكري : ${sectort} . \n > وقت تفاعله : ${time} . \n > الحالة : تم رفضه . \n تم رفضه من قبل : ${interaction.member} . <:emoji_20:981170142744567808> **__ `)
+              .setFooter({text:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+              .setColor("RANDOM")
+              .setTimestamp();
+              //
+              m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم رفضه من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[embed],components:[] });
+              member.send(`**لقد تم رفض تقديمك ! 🥳 **`)
+              db.delete(`userm_${interaction.message.id}`)
+              db.delete(`namet9demadare_${interaction.message.id}`)
+              db.delete(`5brat9demadaret_${interaction.message.id}`)
+              db.delete(`sectort9demadare_${interaction.message.id}`)
+              db.delete(`timet9demadare_${interaction.message.id}`)
+              db.delete(`message_${interaction.message.id}`)
+                  }
+                  //
+                  if(interaction.customId == "a3la9t9demadare") {
+                    let embed = new Discord.MessageEmbed()
+            .setAuthor({name:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+            .setTitle(`التقديم الإداري`)
+            .setDescription(` __** التقديم الإداري في : ${interaction.guild.name} مغلق للأسف الشديد ... . **__ `)
+            .setColor("GREEN")
+            let row = new Discord.MessageActionRow().addComponents(
+              new Discord.MessageButton()
+             .setLabel(`فتح التقديم الإداري في : ${interaction.guild.name} ...`)
+             .setEmoji('👮🏻')
+             .setCustomId("ft7t9demadare")
+             .setStyle("SUCCESS")
+            )
+            interaction.message.edit({ embeds: [embed], components:[row] })
+                        }
+                        //
+                        if(interaction.customId == "ft7t9demadare") {
+                          if(!db.has(`channelalt9dem_${interaction.guild.id}`)) return interaction.reply({ content: ` __** تواصل مع : <@${owner}> **__ `, ephemeral:true });
+                          let embed = new Discord.MessageEmbed()
+                          .setAuthor({name:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+                          .setTitle(`التقديم الإداري`)
+                          .setDescription(` __** لـ التقديم الإداري يرجى الضغط على 👮🏻 . **__ `)
+                          .setColor("GREEN")
+                          let row = new Discord.MessageActionRow().addComponents(
+                            new Discord.MessageButton()
+                            .setLabel(`التقديم الإداري في : ${interaction.guild.name} ...`)
+                            .setEmoji('👮🏻')
+                            .setCustomId("t9demadare")
+                            .setStyle("SUCCESS"),
+                            new Discord.MessageButton()
+                           .setLabel(`إغلاق التقديم الإداري في : ${interaction.guild.name} ...`)
+                           .setEmoji('🚫')
+                           .setCustomId("a3la9t9demadare")
+                           .setStyle("DANGER")
+                          )
+                  interaction.message.edit({ embeds: [embed], components:[row] });
+                  interaction.channel.send({ content: ` __** @everyone **__ ` });
+                              }
+          }
+        });
+
 client.on("ready" , () => {
   let guild = `980493720233316372`
   if(!dbp.has(`codes_${guild}`)) {
