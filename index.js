@@ -4165,7 +4165,7 @@ interaction.editReply({ content: ` __** يرجى التوجه إلى : <#1032593
         //
 interaction.editReply({ content: ` __** جاري حذف المطلوب ... **__ ` });
 //
-al3skre.send({ content:  ` __** ${al3skre} تم حذف احد المطلوبين :
+/* al3skre.send({ content:  ` __** ${al3skre} تم حذف احد المطلوبين :
 و بالتحديد هذا : (${interaction.message.url}) المطلوب  .
 ( المطلوب كان : ${alm6lob} ) .
 من قبل المسؤول  ${interaction.user} .
@@ -4176,7 +4176,7 @@ alm6lob.send({ content: ` __** ${alm6lob} تم حذف أحد سجلاتك الإ
 ( و قد كانت من قبل العسكري ${al3skre} ) .
 و أصبح عدد تهمك الأن : ( ${countt || 0} )
 من قبل المسؤول : ${interaction.user} **__ ` });
-// 
+// */
 dbm.delete(`al3skre_${interaction.message.id}`)
 dbm.delete(`alm6lob_${interaction.message.id}`)
 dbm.delete(`alrsalh_${interaction.message.id}`)
@@ -4190,7 +4190,7 @@ var done
 dbm.set(`3ddthmh_${interaction.message.id}`,done)
 //
 interaction.editReply({ content: ` __** تم حذف المطلوب ! **__ ` });
-interaction.messge.delete();
+interaction.message.delete();
               }
     });
 
