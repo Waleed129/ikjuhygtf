@@ -2282,7 +2282,7 @@ if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ con
             .setColor("GREEN")
             let row = new Discord.MessageActionRow().addComponents(
               new Discord.MessageButton()
-              .setLabel(`التقديم الإداري في : ${message.guild.name} ...`)
+              .setLabel(`تقديم إداري في : ${message.guild.name} ...`)
               .setEmoji('👮🏻')
               .setCustomId("t9demadare")
               .setStyle("SUCCESS"),
@@ -2448,15 +2448,15 @@ let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
                       let user = dbm.get(`userm_${interaction.message.id}`)
                       let member = interaction.guild.members.cache.get(user)
       //
-              /* let embed = new Discord.MessageEmbed()
+               let embed = new Discord.MessageEmbed()
               .setAuthor({name:`${member.displayName}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
               .setTitle(`${interaction.member.id}`)
               .setDescription(`__** > <:emoji_20:981170142744567808> تقديم إداري جديد بواسطة : "${member}" . \n > إسم المقدم : ${name}\n > أيدي العسكري : ${interaction.member.displayName} . \n > خبرات المقدم : ${hbrath} . \n > قطاع العسكري : ${sectort} . \n > وقت تفاعله : ${time} . \n > الحالة : تم رفضه . \n تم رفضه من قبل : ${interaction.member} . <:emoji_20:981170142744567808> **__ `)
               .setFooter({text:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
               .setColor("RANDOM")
-              .setTimestamp(); */
+              .setTimestamp(); 
               //
-m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم رفضه من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[],components:[] });
+m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم رفضه من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[embed],components:[] });
 member.send({ content: ` __** يا ${member} تم رفض تقديمك للأسف في : \`${interaction.guild.name}\` من قبل : ${interaction.member} **__ ` });
               dbm.delete(`userm_${interaction.message.id}`)
               dbm.delete(`namet9demadare_${interaction.message.id}`)
