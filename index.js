@@ -2307,7 +2307,7 @@ if(interaction.member.roles.cache.some(r=> r.id == da7leh)) return interaction.r
 if(interaction.member.roles.cache.some(r=> r.id == adarh)) return interaction.reply({ content: ` __** أنت إداري مسبقاَ في ${interaction.guild.name} ! **__ `, ephemeral:true });
 if(interaction.member.roles.cache.some(r=> r.id == adarh2)) return interaction.reply({ content: ` __** أنت إداري مسبقاَ في ${interaction.guild.name} ! **__ `, ephemeral:true });
 if(cooldown.has(interaction.member.id)) return interaction.reply({ content: ` __** اهده حبيبي انتظر ساعة بعدها تعال **__ `, ephemeral:true });
-let user = db.get(`userm_${interaction.member.id}`)  
+let user = dbm.get(`userm_${interaction.member.id}`)  
 if(user) return interaction.reply({ content: ` __** لقد قمت بالتقديم مسبقاً ! **__ `, ephemeral:true });
 //
             const modalt9demadare = new ModalBuilder()
@@ -2390,12 +2390,12 @@ if(user) return interaction.reply({ content: ` __** لقد قمت بالتقدي
         interaction.reply({ content: ` __** <:emoji_20:981170142744567808> تم إرسال تقديمك بـ نجاح : ${interaction.member} <:emoji_20:981170142744567808> **__ `, ephemeral:true });
         channel.send({ content: ` __** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${interaction.member} <:emoji_20:981170142744567808> **__ `, embeds:[embed],components:[row] }).then(m=> {
         channel.send({ files: [line] });
-        db.set(`userm_${m.id}` , interaction.member.id)
-        db.set(`namet9demadare_${m.id}` , `${name}`)
-        db.set(`5brat9demadaret_${m.id}` , `${hbratt9demadare}`)
-        db.set(`sectort9demadare_${m.id}` , `${sector}`)
-        db.set(`timet9demadare_${m.id}` , `${time}`)
-        db.set(`message_${m.id}` , m.id)
+        dbm.set(`userm_${m.id}` , interaction.member.id)
+        dbm.set(`namet9demadare_${m.id}` , `${name}`)
+        dbm.set(`5brat9demadaret_${m.id}` , `${hbratt9demadare}`)
+        dbm.set(`sectort9demadare_${m.id}` , `${sector}`)
+        dbm.set(`timet9demadare_${m.id}` , `${time}`)
+        dbm.set(`message_${m.id}` , m.id)
       })
     }
  });     
@@ -2403,22 +2403,22 @@ if(user) return interaction.reply({ content: ` __** لقد قمت بالتقدي
 client.on("interactionCreate" , async interaction => {
           if(interaction.isButton()) {
             if(interaction.customId == "acc") {
-        let name = db.get(`namet9demadare_${interaction.message.id}`)
-        let hbrath = db.get(`5brat9demadaret_${interaction.message.id}`)
-        let sectort = db.get(`sectort9demadare_${interaction.message.id}`)
-        let time = db.get(`timet9demadare_${interaction.message.id}`)
-        let m = interaction.channel.messages.cache.find(r=>r.id == db.get(`message_${interaction.message.id}`))
+        let name = dbm.get(`namet9demadare_${interaction.message.id}`)
+        let hbrath = dbm.get(`5brat9demadaret_${interaction.message.id}`)
+        let sectort = dbm.get(`sectort9demadare_${interaction.message.id}`)
+        let time = dbm.get(`timet9demadare_${interaction.message.id}`)
+        let m = interaction.channel.messages.cache.find(r=>r.id == dbm.get(`message_${interaction.message.id}`))
         //
-                let user = db.get(`userm_${interaction.message.id}`)
+                let user = dbm.get(`userm_${interaction.message.id}`)
                 let member = interaction.guild.members.cache.get(user)
 //
-          /*      let embed = new Discord.MessageEmbed()
+                let embed = new Discord.MessageEmbed()
         .setAuthor({name:`${member.displayName}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
         .setTitle(`${interaction.member.id}`)
         .setDescription(`__** > <:emoji_20:981170142744567808> تقديم إداري جديد بواسطة : "${member}" . \n > إسم المقدم : ${name}\n > أيدي العسكري : ${interaction.member.displayName} . \n > خبرات المقدم : ${hbrath} . \n > قطاع العسكري : ${sectort} . \n > وقت تفاعله : ${time} . \n > الحالة : تم قبوله . \n تم قبوله من قبل : ${interaction.member} . <:emoji_20:981170142744567808> **__ `)
         .setFooter({text:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
         .setColor("RANDOM")
-        .setTimestamp(); */
+        .setTimestamp(); 
         //
        let adarh = interaction.guild.roles.cache.get('980494295444361216');
 let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
@@ -2428,42 +2428,42 @@ let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
     interaction.channel.send({ content: ` __** لم إستطع تغيير إسم : <@!${member.id}> **__ ` });
   }); 
         //
-        m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم قبوله من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[],components:[] });
+        m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم قبوله من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[embed],components:[] });
         member.send({ content: ` __** يا ${member} تم قبول تقديمك الإداري في : "${interaction.guild.name}" و تم تسيلمك : "${adarh.name},${adarh2.name}" و تم وضع لك الشعار : \`"${member.displayName}"\` ... **__ ` });
-        db.delete(`userm_${interaction.message.id}`)
-        db.delete(`namet9demadare_${interaction.message.id}`)
-        db.delete(`5brat9demadaret_${interaction.message.id}`)
-        db.delete(`sectort9demadare_${interaction.message.id}`)
-        db.delete(`timet9demadare_${interaction.message.id}`)
-        db.delete(`message_${interaction.message.id}`)
+        dbm.delete(`userm_${interaction.message.id}`)
+        dbm.delete(`namet9demadare_${interaction.message.id}`)
+        dbm.delete(`5brat9demadaret_${interaction.message.id}`)
+        dbm.delete(`sectort9demadare_${interaction.message.id}`)
+        dbm.delete(`timet9demadare_${interaction.message.id}`)
+        dbm.delete(`message_${interaction.message.id}`)
             }
             //
             if(interaction.customId == "t9demadarerf8") {
-              let name = db.get(`namet9demadare_${interaction.message.id}`)
-              let hbrath = db.get(`5brat9demadaret_${interaction.message.id}`)
-              let sectort = db.get(`sectort9demadare_${interaction.message.id}`)
-              let time = db.get(`timet9demadare_${interaction.message.id}`)
-              let m = interaction.channel.messages.cache.find(r=>r.id == db.get(`message_${interaction.message.id}`))
+              let name = dbm.get(`namet9demadare_${interaction.message.id}`)
+              let hbrath = dbm.get(`5brat9demadaret_${interaction.message.id}`)
+              let sectort = dbm.get(`sectort9demadare_${interaction.message.id}`)
+              let time = dbm.get(`timet9demadare_${interaction.message.id}`)
+              let m = interaction.channel.messages.cache.find(r=>r.id == dbm.get(`message_${interaction.message.id}`))
               //
-                      let user = db.get(`userm_${interaction.message.id}`)
+                      let user = dbm.get(`userm_${interaction.message.id}`)
                       let member = interaction.guild.members.cache.get(user)
       //
-                      let embed = new Discord.MessageEmbed()
+              /* let embed = new Discord.MessageEmbed()
               .setAuthor({name:`${member.displayName}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
               .setTitle(`${interaction.member.id}`)
               .setDescription(`__** > <:emoji_20:981170142744567808> تقديم إداري جديد بواسطة : "${member}" . \n > إسم المقدم : ${name}\n > أيدي العسكري : ${interaction.member.displayName} . \n > خبرات المقدم : ${hbrath} . \n > قطاع العسكري : ${sectort} . \n > وقت تفاعله : ${time} . \n > الحالة : تم رفضه . \n تم رفضه من قبل : ${interaction.member} . <:emoji_20:981170142744567808> **__ `)
               .setFooter({text:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
               .setColor("RANDOM")
-              .setTimestamp();
+              .setTimestamp(); */
               //
-              m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم رفضه من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[embed],components:[] });
-              member.send(` __**  **__ `)
-              db.delete(`userm_${interaction.message.id}`)
-              db.delete(`namet9demadare_${interaction.message.id}`)
-              db.delete(`5brat9demadaret_${interaction.message.id}`)
-              db.delete(`sectort9demadare_${interaction.message.id}`)
-              db.delete(`timet9demadare_${interaction.message.id}`)
-              db.delete(`message_${interaction.message.id}`)
+m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم رفضه من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[],components:[] });
+member.send({ content: ` __** يا ${member} تم رفض تقديمك للأسف في : \`${interaction.guild.name}\` من قبل : ${interaction.member} **__ ` });
+              dbm.delete(`userm_${interaction.message.id}`)
+              dbm.delete(`namet9demadare_${interaction.message.id}`)
+              dbm.delete(`5brat9demadaret_${interaction.message.id}`)
+              dbm.delete(`sectort9demadare_${interaction.message.id}`)
+              dbm.delete(`timet9demadare_${interaction.message.id}`)
+              dbm.delete(`message_${interaction.message.id}`)
                   }
                   //
                   if(interaction.customId == "a3la9t9demadare") {
