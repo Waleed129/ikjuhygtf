@@ -2412,13 +2412,13 @@ client.on("interactionCreate" , async interaction => {
                 let user = db.get(`userm_${interaction.message.id}`)
                 let member = interaction.guild.members.cache.get(user)
 //
-                let embed = new Discord.MessageEmbed()
+          /*      let embed = new Discord.MessageEmbed()
         .setAuthor({name:`${member.displayName}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
         .setTitle(`${interaction.member.id}`)
         .setDescription(`__** > <:emoji_20:981170142744567808> تقديم إداري جديد بواسطة : "${member}" . \n > إسم المقدم : ${name}\n > أيدي العسكري : ${interaction.member.displayName} . \n > خبرات المقدم : ${hbrath} . \n > قطاع العسكري : ${sectort} . \n > وقت تفاعله : ${time} . \n > الحالة : تم قبوله . \n تم قبوله من قبل : ${interaction.member} . <:emoji_20:981170142744567808> **__ `)
         .setFooter({text:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
         .setColor("RANDOM")
-        .setTimestamp();
+        .setTimestamp(); */
         //
        let adarh = interaction.guild.roles.cache.get('980494295444361216');
 let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
@@ -2428,7 +2428,7 @@ let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
     interaction.channel.send({ content: ` __** لم إستطع تغيير إسم : <@!${member.id}> **__ ` });
   }); 
         //
-        m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم قبوله من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[embed],components:[] });
+        m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم قبوله من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[],components:[] });
         member.send({ content: ` __** يا ${member} تم قبول تقديمك الإداري في : "${interaction.guild.name}" و تم تسيلمك : "${adarh.name},${adarh2.name}" و تم وضع لك الشعار : \`"${member.displayName}"\` ... **__ ` });
         db.delete(`userm_${interaction.message.id}`)
         db.delete(`namet9demadare_${interaction.message.id}`)
@@ -2457,7 +2457,7 @@ let adarh2 = interaction.guild.roles.cache.get('980494296320999424');
               .setTimestamp();
               //
               m.edit({ content: `__** <:emoji_20:981170142744567808> تقديم جديد بواسطة : ${member} تم رفضه من قبل : ${interaction.member} <:emoji_20:981170142744567808> **__ ` ,embeds:[embed],components:[] });
-              member.send(`**لقد تم رفض تقديمك ! **`)
+              member.send(` __**  **__ `)
               db.delete(`userm_${interaction.message.id}`)
               db.delete(`namet9demadare_${interaction.message.id}`)
               db.delete(`5brat9demadaret_${interaction.message.id}`)
