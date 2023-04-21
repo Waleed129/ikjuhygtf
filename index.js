@@ -2254,7 +2254,6 @@ client.on("messageCreate", async message => {
         }
           }}); */
 
-
           client.on("messageCreate" , message => {
             if(message.author.bot) return;
             if (message.guild.id == '980493720233316372') {
